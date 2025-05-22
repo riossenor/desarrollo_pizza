@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - Pizza Delivery</title>
+    <link rel="stylesheet" href="../estilos/styles.css">
+    <link rel="stylesheet" href="../estilos/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html"><img src="../recursos/logo.png" alt="Logo de Pizza"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="menu.html" class="active">Menús</a></li>
+                    <li><a href="combos.html">Combos</a></li>
+                    <li><a href="promociones.html">Promociones</a></li>
+                    <li><a href="crea-tu-pizza.html">Crea tu pizza</a></li>
+                    <li><a href="ayuda.html">Ayuda</a></li>
+                    <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="chat-button">
+                <a href="login-registro.html"><button class="btn-chat">Entrar</button></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="menu-main">
+        <section class="menu-hero">
+            <div class="menu-hero-content">
+                <h1>Nuestro Menú</h1>
+                <p>Descubre todos nuestros deliciosos productos</p>
+            </div>
+        </section>
+
+        <section class="menu-categories">
+            <div class="menu-container">
+                <div class="category-tabs">
+                    <button class="category-tab active" data-category="pizzas">Pizzas</button>
+                    <button class="category-tab" data-category="bebidas">Bebidas</button>
+                    <button class="category-tab" data-category="papas">Papas Fritas</button>
+                    <button class="category-tab" data-category="volovanes">Volovanes</button>
+                    <button class="category-tab" data-category="hojaldras">Hojaldras</button>
+                    <button class="category-tab" data-category="postres">Postres</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Pizzas -->
+        <section id="pizzas" class="menu-section active">
+            <div class="menu-container">
+                <div class="size-selector">
+                    <button class="size-btn active" data-size="chica">Chica</button>
+                    <button class="size-btn" data-size="mediana">Mediana</button>
+                    <button class="size-btn" data-size="grande">Grande</button>
+                </div>
+                
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="../recursos/pizza-pepperoni.jpeg" alt="Pizza Pepperoni">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Pepperoni</h3>
+                            <p>Pepperoni y queso mozzarella</p>
+                            <div class="menu-item-price">
+                                <span class="price" data-size="chica">$99.00</span>
+                                <span class="price hidden" data-size="mediana">$129.00</span>
+                                <span class="price hidden" data-size="grande">$169.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="../recursos/pizza-hawaiana.jpeg" alt="Pizza Hawaiana">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Hawaiana</h3>
+                            <p>Jamón, piña y queso mozzarella</p>
+                            <div class="menu-item-price">
+                                <span class="price" data-size="chica">$109.00</span>
+                                <span class="price hidden" data-size="mediana">$139.00</span>
+                                <span class="price hidden" data-size="grande">$179.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="../recursos/pizza-mexicana.jpeg" alt="Pizza Mexicana">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Mexicana</h3>
+                            <p>Chorizo, pimientos, aceitunas negras y queso</p>
+                            <div class="menu-item-price">
+                                <span class="price" data-size="chica">$119.00</span>
+                                <span class="price hidden" data-size="mediana">$149.00</span>
+                                <span class="price hidden" data-size="grande">$189.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Pizza Vegetariana">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Vegetariana</h3>
+                            <p>Pimientos, champiñones, cebolla, aceitunas y queso</p>
+                            <div class="menu-item-price">
+                                <span class="price" data-size="chica">$119.00</span>
+                                <span class="price hidden" data-size="mediana">$149.00</span>
+                                <span class="price hidden" data-size="grande">$189.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Pizza Suprema">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Suprema</h3>
+                            <p>Pepperoni, jamón, pimientos, cebolla, champiñones y queso</p>
+                            <div class="menu-item-price">
+                                <span class="price" data-size="chica">$129.00</span>
+                                <span class="price hidden" data-size="mediana">$159.00</span>
+                                <span class="price hidden" data-size="grande">$199.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Pizza 4 Quesos">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>4 Quesos</h3>
+                            <p>Queso mozzarella, cheddar, parmesano y queso azul</p>
+                            <div class="menu-item-price">
+                                <span class="price" data-size="chica">$129.00</span>
+                                <span class="price hidden" data-size="mediana">$159.00</span>
+                                <span class="price hidden" data-size="grande">$199.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Bebidas -->
+        <section id="bebidas" class="menu-section">
+            <div class="menu-container">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Refresco Cola">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Refresco Cola</h3>
+                            <p>Botella 600ml</p>
+                            <div class="menu-item-price">
+                                <span class="price">$25.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Refresco Limón">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Refresco Limón</h3>
+                            <p>Botella 600ml</p>
+                            <div class="menu-item-price">
+                                <span class="price">$25.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Agua Mineral">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Agua Mineral</h3>
+                            <p>Botella 600ml</p>
+                            <div class="menu-item-price">
+                                <span class="price">$20.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Refresco Familiar">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Refresco Familiar</h3>
+                            <p>Botella 1.5L</p>
+                            <div class="menu-item-price">
+                                <span class="price">$45.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Papas Fritas -->
+        <section id="papas" class="menu-section">
+            <div class="menu-container">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Papas Fritas Clásicas">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Papas Fritas Clásicas</h3>
+                            <p>Crujientes papas fritas con sal</p>
+                            <div class="menu-item-price">
+                                <span class="price">$39.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Papas con Queso">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Papas con Queso</h3>
+                            <p>Papas fritas cubiertas con queso cheddar derretido</p>
+                            <div class="menu-item-price">
+                                <span class="price">$49.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Papas Supremas">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Papas Supremas</h3>
+                            <p>Papas fritas con queso, tocino y jalapeños</p>
+                            <div class="menu-item-price">
+                                <span class="price">$59.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Volovanes -->
+        <section id="volovanes" class="menu-section">
+            <div class="menu-container">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Volovanes de Jamón y Queso">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Volovanes de Jamón y Queso</h3>
+                            <p>4 piezas rellenas de jamón y queso</p>
+                            <div class="menu-item-price">
+                                <span class="price">$45.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Volovanes de Champiñones">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Volovanes de Champiñones</h3>
+                            <p>4 piezas rellenas de champiñones con crema</p>
+                            <div class="menu-item-price">
+                                <span class="price">$45.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Volovanes Mixtos">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Volovanes Mixtos</h3>
+                            <p>6 piezas variadas: jamón, champiñones y atún</p>
+                            <div class="menu-item-price">
+                                <span class="price">$65.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Hojaldras -->
+        <section id="hojaldras" class="menu-section">
+            <div class="menu-container">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Hojaldre de Manzana">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Hojaldre de Manzana</h3>
+                            <p>Delicioso hojaldre relleno de manzana y canela</p>
+                            <div class="menu-item-price">
+                                <span class="price">$35.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Hojaldre de Chocolate">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Hojaldre de Chocolate</h3>
+                            <p>Hojaldre relleno de chocolate</p>
+                            <div class="menu-item-price">
+                                <span class="price">$35.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Hojaldre de Queso">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Hojaldre de Queso</h3>
+                            <p>Hojaldre relleno de queso crema</p>
+                            <div class="menu-item-price">
+                                <span class="price">$35.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Postres -->
+        <section id="postres" class="menu-section">
+            <div class="menu-container">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Helado de Vainilla">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Helado de Vainilla</h3>
+                            <p>En vaso o cono</p>
+                            <div class="menu-item-price">
+                                <span class="price">$25.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Helado de Chocolate">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Helado de Chocolate</h3>
+                            <p>En vaso o cono</p>
+                            <div class="menu-item-price">
+                                <span class="price">$25.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Helado de Fresa">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Helado de Fresa</h3>
+                            <p>En vaso o cono</p>
+                            <div class="menu-item-price">
+                                <span class="price">$25.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Sundae de Chocolate">
+                        </div>
+                        <div class="menu-item-info">
+                            <h3>Sundae de Chocolate</h3>
+                            <p>Helado con salsa de chocolate y nueces</p>
+                            <div class="menu-item-price">
+                                <span class="price">$35.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="register-banner">
+            <div class="register-content">
+                <p>Regístrate y disfruta de la experiencia completa:</p>
+                <p>Ofertas, descuentos, compras y muchas, muchas sorpresas</p>
+                <a href="login-registro.html"><button class="btn-login">Iniciar sesión</button></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../recursos/logo.png" alt="Logo de Pizza">
+            </div>
+            <div class="footer-section">
+                <h3>Sobre nosotros</h3>
+                <ul>
+                    <li><a href="#">Ubicación</a></li>
+                    <li><a href="#">Historia</a></li>
+                    <li><a href="#">Contactanos</a></li>
+                    <li><a href="#">Aviso de privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Atención al cliente</a></li>
+                    <li><a href="#">Cómo realizar un pedido</a></li>
+                    <li><a href="#">Estado de tu pedido</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contáctanos</h3>
+                <div class="contact-info">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p>Número de teléfono:</p>
+                    <p>+123 456 789 0123</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scrips/script.js"></script>
+    <script src="../scrips/menu.js"></script>
+</body>
+</html>

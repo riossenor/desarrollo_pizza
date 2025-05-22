@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crea tu Pizza - Pizza Delivery</title>
+    <link rel="stylesheet" href="../estilos/styles.css">
+    <link rel="stylesheet" href="../estilos/crea-tu-pizza.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html"><img src="../recursos/logo.png" alt="Logo de Pizza"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="menu.html">Menús</a></li>
+                    <li><a href="combos.html">Combos</a></li>
+                    <li><a href="promociones.html">Promociones</a></li>
+                    <li><a href="crea-tu-pizza.html" class="active">Crea tu pizza</a></li>
+                    <li><a href="ayuda.html">Ayuda</a></li>
+                    <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="chat-button">
+                <a href="login-registro.html"><button class="btn-chat">Entrar</button></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="create-pizza-main">
+        <section class="create-pizza-hero">
+            <div class="create-pizza-hero-content">
+                <h1>Crea tu Pizza Perfecta</h1>
+                <p>Personaliza cada detalle y disfruta de una experiencia única</p>
+            </div>
+        </section>
+
+        <section class="create-pizza-container">
+            <div class="pizza-builder">
+                <div class="pizza-options">
+                    <div class="options-container">
+                        <h2>Personaliza tu Pizza</h2>
+                        
+                        <!-- Tamaño de la pizza -->
+                        <div class="option-section">
+                            <h3>Tamaño</h3>
+                            <div class="size-options">
+                                <label class="size-option">
+                                    <input type="radio" name="size" value="small" checked>
+                                    <span class="size-circle small"></span>
+                                    <span class="size-label">Pequeña</span>
+                                    <span class="size-price">$99</span>
+                                </label>
+                                <label class="size-option">
+                                    <input type="radio" name="size" value="medium">
+                                    <span class="size-circle medium"></span>
+                                    <span class="size-label">Mediana</span>
+                                    <span class="size-price">$149</span>
+                                </label>
+                                <label class="size-option">
+                                    <input type="radio" name="size" value="large">
+                                    <span class="size-circle large"></span>
+                                    <span class="size-label">Grande</span>
+                                    <span class="size-price">$199</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Tipo de masa -->
+                        <div class="option-section">
+                            <h3>Tipo de Masa</h3>
+                            <div class="crust-options">
+                                <label class="crust-option">
+                                    <input type="radio" name="crust" value="traditional" checked>
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=60&width=60" alt="Masa Tradicional">
+                                        </div>
+                                        <div class="option-info">
+                                            <span class="option-name">Tradicional</span>
+                                            <span class="option-desc">Masa clásica, ni muy gruesa ni muy delgada</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="crust-option">
+                                    <input type="radio" name="crust" value="thin">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=60&width=60" alt="Masa Delgada">
+                                        </div>
+                                        <div class="option-info">
+                                            <span class="option-name">Delgada</span>
+                                            <span class="option-desc">Masa fina y crujiente</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="crust-option">
+                                    <input type="radio" name="crust" value="thick">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=60&width=60" alt="Masa Gruesa">
+                                        </div>
+                                        <div class="option-info">
+                                            <span class="option-name">Gruesa</span>
+                                            <span class="option-desc">Masa esponjosa estilo pan</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="crust-option">
+                                    <input type="radio" name="crust" value="stuffed">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=60&width=60" alt="Masa con Borde Relleno">
+                                        </div>
+                                        <div class="option-info">
+                                            <span class="option-name">Borde Relleno</span>
+                                            <span class="option-desc">Con queso en el borde</span>
+                                            <span class="option-extra">+$20</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Tipo de salsa -->
+                        <div class="option-section">
+                            <h3>Salsa</h3>
+                            <div class="sauce-options">
+                                <label class="sauce-option">
+                                    <input type="radio" name="sauce" value="tomato" checked>
+                                    <div class="option-card">
+                                        <div class="option-img sauce-tomato">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Salsa de Tomate">
+                                        </div>
+                                        <span class="option-name">Tomate</span>
+                                    </div>
+                                </label>
+                                <label class="sauce-option">
+                                    <input type="radio" name="sauce" value="bbq">
+                                    <div class="option-card">
+                                        <div class="option-img sauce-bbq">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Salsa BBQ">
+                                        </div>
+                                        <span class="option-name">BBQ</span>
+                                    </div>
+                                </label>
+                                <label class="sauce-option">
+                                    <input type="radio" name="sauce" value="white">
+                                    <div class="option-card">
+                                        <div class="option-img sauce-white">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Salsa Blanca">
+                                        </div>
+                                        <span class="option-name">Blanca</span>
+                                    </div>
+                                </label>
+                                <label class="sauce-option">
+                                    <input type="radio" name="sauce" value="pesto">
+                                    <div class="option-card">
+                                        <div class="option-img sauce-pesto">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Salsa Pesto">
+                                        </div>
+                                        <span class="option-name">Pesto</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Tipo de queso -->
+                        <div class="option-section">
+                            <h3>Queso</h3>
+                            <div class="cheese-options">
+                                <label class="cheese-option">
+                                    <input type="radio" name="cheese" value="mozzarella" checked>
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Queso Mozzarella">
+                                        </div>
+                                        <span class="option-name">Mozzarella</span>
+                                    </div>
+                                </label>
+                                <label class="cheese-option">
+                                    <input type="radio" name="cheese" value="cheddar">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Queso Cheddar">
+                                        </div>
+                                        <span class="option-name">Cheddar</span>
+                                    </div>
+                                </label>
+                                <label class="cheese-option">
+                                    <input type="radio" name="cheese" value="gouda">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Queso Gouda">
+                                        </div>
+                                        <span class="option-name">Gouda</span>
+                                    </div>
+                                </label>
+                                <label class="cheese-option">
+                                    <input type="radio" name="cheese" value="parmesan">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Queso Parmesano">
+                                        </div>
+                                        <span class="option-name">Parmesano</span>
+                                    </div>
+                                </label>
+                                <label class="cheese-option">
+                                    <input type="checkbox" name="extra_cheese" value="extra">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Extra Queso">
+                                        </div>
+                                        <span class="option-name">Extra Queso</span>
+                                        <span class="option-extra">+$15</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Ingredientes -->
+                        <div class="option-section">
+                            <h3>Ingredientes</h3>
+                            <p class="ingredients-note">Selecciona hasta 5 ingredientes (los primeros 3 son gratis, +$10 por ingrediente adicional)</p>
+                            <div class="ingredients-options">
+                                <label class="ingredient-option">
+                                    <input type="checkbox" name="ingredient" value="pepperoni">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Pepperoni">
+                                        </div>
+                                        <span class="option-name">Pepperoni</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="ingredient-option">
+                                    <input type="checkbox" name="ingredient" value="ham">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Jamón">
+                                        </div>
+                                        <span class="option-name">Jamón</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="ingredient-option">
+                                    <input type="checkbox" name="ingredient" value="bacon">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Tocino">
+                                        </div>
+                                        <span class="option-name">Tocino</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="ingredient-option">
+                                    <input type="checkbox" name="ingredient" value="sausage">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Salchicha">
+                                        </div>
+                                        <span class="option-name">Salchicha</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="ingredient-option">
+                                    <input type="checkbox" name="ingredient" value="chicken">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Pollo">
+                                        </div>
+                                        <span class="option-name">Pollo</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="ingredient-option">
+                                    <input type="checkbox" name="ingredient" value="beef">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Carne">
+                                        </div>
+                                        <span class="option-name">Carne</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="ingredient-option">
+                                    <input type="checkbox" name="ingredient" value="mushrooms">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Champiñones">
+                                        </div>
+                                        <span class="option-name">Champiñones</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="ingredient-option">
+                                    <input type="checkbox" name="ingredient" value="onions">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Cebolla">
+                                        </div>
+                                        <span class="option-name">Cebolla</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="ingredient-option">
+                                    <input type="checkbox" name="ingredient" value="peppers">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Pimientos">
+                                        </div>
+                                        <span class="option-name">Pimientos</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="ingredient-option">
+                                    <input type="checkbox" name="ingredient" value="olives">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Aceitunas">
+                                        </div>
+                                        <span class="option-name">Aceitunas</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="ingredient-option">
+                                    <input type="checkbox" name="ingredient" value="pineapple">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Piña">
+                                        </div>
+                                        <span class="option-name">Piña</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="ingredient-option">
+                                    <input type="checkbox" name="ingredient" value="tomatoes">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Tomate">
+                                        </div>
+                                        <span class="option-name">Tomate</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="ingredient-option">
+                                    <input type="checkbox" name="ingredient" value="corn">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Maíz">
+                                        </div>
+                                        <span class="option-name">Maíz</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="ingredient-option">
+                                    <input type="checkbox" name="ingredient" value="jalapenos">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Jalapeños">
+                                        </div>
+                                        <span class="option-name">Jalapeños</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="ingredient-option">
+                                    <input type="checkbox" name="ingredient" value="spinach">
+                                    <div class="option-card">
+                                        <div class="option-img">
+                                            <img src="/placeholder.svg?height=40&width=40" alt="Espinacas">
+                                        </div>
+                                        <span class="option-name">Espinacas</span>
+                                        <div class="ingredient-amount">
+                                            <button type="button" class="amount-btn" data-action="less">-</button>
+                                            <span class="amount-text">Normal</span>
+                                            <button type="button" class="amount-btn" data-action="more">+</button>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pizza-preview">
+                    <div class="preview-container">
+                        <h2>Tu Pizza</h2>
+                        <div class="pizza-canvas-container">
+                            <div class="pizza-canvas">
+                                <canvas id="pizza-builder-canvas" width="300" height="300"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="pizza-summary">
+                            <h3>Resumen</h3>
+                            <ul id="pizza-summary-list">
+                                <li><span>Tamaño:</span> <span id="summary-size">Pequeña</span></li>
+                                <li><span>Masa:</span> <span id="summary-crust">Tradicional</span></li>
+                                <li><span>Salsa:</span> <span id="summary-sauce">Tomate</span></li>
+                                <li><span>Queso:</span> <span id="summary-cheese">Mozzarella</span></li>
+                                <li><span>Ingredientes:</span> <span id="summary-ingredients">Ninguno seleccionado</span></li>
+                            </ul>
+                            
+                            <div class="pizza-price">
+                                <div class="price-row">
+                                    <span>Precio base:</span>
+                                    <span id="base-price">$99.00</span>
+                                </div>
+                                <div class="price-row">
+                                    <span>Extras:</span>
+                                    <span id="extras-price">$0.00</span>
+                                </div>
+                                <div class="price-row total">
+                                    <span>Total:</span>
+                                    <span id="total-price">$99.00</span>
+                                </div>
+                            </div>
+                            
+                            <div class="pizza-actions">
+                                <div class="quantity-selector">
+                                    <button id="decrease-quantity" class="quantity-btn">-</button>
+                                    <input type="number" id="pizza-quantity" value="1" min="1" max="10">
+                                    <button id="increase-quantity" class="quantity-btn">+</button>
+                                </div>
+                                <button id="add-to-cart" class="btn-add-to-cart">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="register-banner">
+            <div class="register-content">
+                <p>Regístrate y disfruta de la experiencia completa:</p>
+                <p>Ofertas, descuentos, compras y muchas, muchas sorpresas</p>
+                <a href="login-registro.html"><button class="btn-login">Iniciar sesión</button></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../recursos/logo.png" alt="Logo de Pizza">
+            </div>
+            <div class="footer-section">
+                <h3>Sobre nosotros</h3>
+                <ul>
+                    <li><a href="#">Ubicación</a></li>
+                    <li><a href="#">Historia</a></li>
+                    <li><a href="#">Contactanos</a></li>
+                    <li><a href="#">Aviso de privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Atención al cliente</a></li>
+                    <li><a href="#">Cómo realizar un pedido</a></li>
+                    <li><a href="#">Estado de tu pedido</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contáctanos</h3>
+                <div class="contact-info">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p>Número de teléfono:</p>
+                    <p>+123 456 789 0123</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scrips/script.js"></script>
+    <script src="../scrips/crea-tu-pizza.js"></script>
+</body>
+</html>

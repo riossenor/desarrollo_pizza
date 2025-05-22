@@ -1,0 +1,353 @@
+/* Estilos específicos para la página de Login y Registro */
+
+.auth-main {
+  background-color: #ffb6b6;
+  padding: 40px 0;
+  min-height: 70vh;
+}
+
+.auth-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 30px;
+}
+
+/* Estilos para la tarjeta de autenticación */
+.auth-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  flex: 1;
+  max-width: 500px;
+}
+
+/* Tabs de autenticación */
+.auth-tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.auth-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #777;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.auth-tab.active {
+  color: #ff0000;
+}
+
+.auth-tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ff0000;
+}
+
+/* Formularios */
+.auth-form {
+  display: none;
+}
+
+.auth-form.active {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Grupo de entrada de contraseña */
+.password-input {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #777;
+  cursor: pointer;
+}
+
+/* Opciones del formulario */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+}
+
+.remember-me input {
+  margin-right: 5px;
+}
+
+.forgot-password {
+  color: #ff0000;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Botón de autenticación */
+.btn-auth {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-auth:hover {
+  background-color: #cc0000;
+}
+
+/* Social login */
+.social-login {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.social-login p {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.social-login p::before,
+.social-login p::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 25%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.social-login p::before {
+  left: 0;
+}
+
+.social-login p::after {
+  right: 0;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.btn-social {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-social i {
+  margin-right: 8px;
+}
+
+.btn-google {
+  color: #db4437;
+}
+
+.btn-google:hover {
+  background-color: #f8f8f8;
+}
+
+.btn-facebook {
+  color: #4267b2;
+}
+
+.btn-facebook:hover {
+  background-color: #f8f8f8;
+}
+
+/* Fuerza de la contraseña */
+.password-strength {
+  margin-top: 10px;
+  font-size: 0.85rem;
+}
+
+.strength-meter {
+  height: 5px;
+  background-color: #eee;
+  margin: 5px 0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.strength-bar {
+  height: 100%;
+  width: 0;
+  background-color: #ff0000;
+  transition: width 0.3s, background-color 0.3s;
+}
+
+.strength-text {
+  color: #ff0000;
+}
+
+/* Check de términos */
+.terms-check {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.terms-check input {
+  margin-right: 8px;
+  margin-top: 3px;
+}
+
+.terms-check a {
+  color: #ff0000;
+  text-decoration: none;
+}
+
+.terms-check a:hover {
+  text-decoration: underline;
+}
+
+/* Beneficios de registro */
+.auth-benefits {
+  flex: 1;
+  padding: 20px;
+}
+
+.auth-benefits h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.benefit-item {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  transition: transform 0.3s;
+}
+
+.benefit-item:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-icon {
+  background-color: #ffecec;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff0000;
+  font-size: 1.2rem;
+}
+
+.benefit-text h3 {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.benefit-text p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Indica que el botón Entrar está activo */
+.btn-chat.active {
+  background-color: #009900;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .auth-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .auth-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-container {
+    padding: 0 10px;
+  }
+
+  .social-buttons {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,212 @@
+/* Estilos específicos para la página de Menú */
+
+.menu-main {
+  background-color: #ffb6b6;
+}
+
+.menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Hero section */
+.menu-hero {
+  background-image: url("../recursos/pizza-hero.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.menu-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.menu-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+}
+
+.menu-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.menu-hero p {
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Category tabs */
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.category-tab {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.category-tab:hover {
+  background-color: #e0e0e0;
+}
+
+.category-tab.active {
+  background-color: #ff0000;
+  color: white;
+}
+
+/* Size selector */
+.size-selector {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.size-btn {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 25px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.size-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.size-btn.active {
+  background-color: #ff0000;
+  color: white;
+}
+
+/* Menu sections */
+.menu-section {
+  display: none;
+}
+
+.menu-section.active {
+  display: block;
+}
+
+/* Menu grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Menu items */
+.menu-item {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+}
+
+.menu-item-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.menu-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.menu-item-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.menu-item-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.menu-item-info p {
+  color: #666;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  min-height: 40px;
+}
+
+.menu-item-price {
+  font-weight: bold;
+  color: #ff0000;
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Estilos para el enlace activo en la navegación */
+.main-nav ul li a.active {
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .category-tabs {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .category-tab {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-hero h1 {
+    font-size: 2rem;
+  }
+}

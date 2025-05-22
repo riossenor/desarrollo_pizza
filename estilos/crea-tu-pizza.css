@@ -1,0 +1,590 @@
+/* Estilos específicos para la página Crea tu Pizza */
+
+.create-pizza-main {
+  background-color: #ffb6b6;
+}
+
+/* Hero section */
+.create-pizza-hero {
+  background-image: url("../recursos/pizza-hero.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.create-pizza-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.create-pizza-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+}
+
+.create-pizza-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.create-pizza-hero p {
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Pizza builder container */
+.create-pizza-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.pizza-builder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+/* Pizza options */
+.pizza-options {
+  flex: 1;
+  min-width: 300px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.options-container {
+  padding: 20px;
+}
+
+.options-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.option-section {
+  margin-bottom: 25px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.option-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.option-section h3 {
+  margin-bottom: 15px;
+  color: #ff0000;
+  font-size: 1.2rem;
+}
+
+/* Size options */
+.size-options {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.size-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.size-option input {
+  display: none;
+}
+
+.size-circle {
+  display: block;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  margin-bottom: 8px;
+  transition: all 0.3s;
+}
+
+.size-circle.small {
+  width: 50px;
+  height: 50px;
+}
+
+.size-circle.medium {
+  width: 70px;
+  height: 70px;
+}
+
+.size-circle.large {
+  width: 90px;
+  height: 90px;
+}
+
+.size-option input:checked + .size-circle {
+  border-color: #ff0000;
+  background-color: #ffecec;
+}
+
+.size-label {
+  font-weight: 500;
+  color: #333;
+}
+
+.size-price {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Crust options */
+.crust-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.crust-option {
+  cursor: pointer;
+}
+
+.crust-option input {
+  display: none;
+}
+
+.option-card {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.crust-option input:checked + .option-card {
+  border-color: #ff0000;
+  background-color: #ffecec;
+}
+
+.option-img {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+
+.option-info {
+  flex: 1;
+}
+
+.option-name {
+  display: block;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.option-desc {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.option-extra {
+  display: block;
+  font-size: 0.85rem;
+  color: #ff0000;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+/* Sauce options */
+.sauce-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sauce-option {
+  flex: 1;
+  min-width: 100px;
+  cursor: pointer;
+}
+
+.sauce-option input {
+  display: none;
+}
+
+.sauce-option .option-card {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px 10px;
+}
+
+.sauce-option .option-img {
+  margin-right: 0;
+  margin-bottom: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.sauce-option input:checked + .option-card {
+  border-color: #ff0000;
+  background-color: #ffecec;
+}
+
+/* Cheese options */
+.cheese-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cheese-option {
+  flex: 1;
+  min-width: 100px;
+  cursor: pointer;
+}
+
+.cheese-option input {
+  display: none;
+}
+
+.cheese-option .option-card {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px 10px;
+}
+
+.cheese-option .option-img {
+  margin-right: 0;
+  margin-bottom: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.cheese-option input:checked + .option-card {
+  border-color: #ff0000;
+  background-color: #ffecec;
+}
+
+/* Ingredients options */
+.ingredients-note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.ingredients-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ingredient-option {
+  flex: 0 0 calc(33.333% - 10px);
+  cursor: pointer;
+}
+
+.ingredient-option input {
+  display: none;
+}
+
+.ingredient-option .option-card {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px 10px;
+}
+
+.ingredient-option .option-img {
+  margin-right: 0;
+  margin-bottom: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.ingredient-option input:checked + .option-card {
+  border-color: #ff0000;
+  background-color: #ffecec;
+}
+
+/* Controles de cantidad de ingredientes */
+.ingredient-amount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  gap: 5px;
+}
+
+.amount-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.amount-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.amount-text {
+  font-size: 0.8rem;
+  color: #666;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* Estilos para cantidades */
+.amount-light .amount-text {
+  color: #999;
+}
+
+.amount-extra .amount-text {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+/* Pizza preview */
+.pizza-preview {
+  flex: 1;
+  min-width: 300px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.preview-container {
+  padding: 20px;
+}
+
+.preview-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.pizza-canvas-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pizza-canvas {
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+.pizza-base {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pizza-crust {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.pizza-sauce,
+.pizza-cheese,
+.pizza-toppings {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Ajustes para el canvas */
+#pizza-builder-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Pizza summary */
+.pizza-summary {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.pizza-summary h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+#pizza-summary-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+#pizza-summary-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #ddd;
+}
+
+#pizza-summary-list li:last-child {
+  border-bottom: none;
+}
+
+/* Pizza price */
+.pizza-price {
+  margin-bottom: 20px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.price-row.total {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+/* Pizza actions */
+.pizza-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.quantity-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.quantity-btn:hover {
+  background-color: #eee;
+}
+
+#pizza-quantity {
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.btn-add-to-cart {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-add-to-cart:hover {
+  background-color: #cc0000;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .pizza-builder {
+    flex-direction: column;
+  }
+
+  .ingredient-option {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .create-pizza-hero h1 {
+    font-size: 2rem;
+  }
+
+  .sauce-options,
+  .cheese-options {
+    justify-content: center;
+  }
+
+  .sauce-option,
+  .cheese-option {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+@media (max-width: 576px) {
+  .size-options {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .ingredient-option {
+    flex: 0 0 100%;
+  }
+
+  .sauce-option,
+  .cheese-option {
+    flex: 0 0 100%;
+  }
+}

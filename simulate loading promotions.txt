@@ -1,0 +1,24 @@
+const loadPromotions = () => {
+    const promoItems = document.querySelectorAll(".promo-item")
+
+    // Sample promotion data (in a real app, this would come from an API)
+    const promotions = [
+      { name: "Combo Familiar", price: "$199", image: "promo1.jpg" },
+      { name: "2x1 Martes", price: "$149", image: "promo2.jpg" },
+      { name: "Pizza + Refresco", price: "$99", image: "promo3.jpg" },
+    ]
+
+    promoItems.forEach((item, index) => {
+      if (promotions[index]) {
+        const promo = promotions[index]
+
+        item.innerHTML = `
+                    <div class="promo-image" style="background-color: #ccc; height: 70%;"></div>
+                    <div class="promo-info" style="padding: 10px;">
+                        <h3>${promo.name}</h3>
+                        <p>${promo.price}</p>
+                    </div>
+                `
+      }
+    })
+  }

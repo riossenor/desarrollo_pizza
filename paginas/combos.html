@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combos - Pizza Delivery</title>
+    <link rel="stylesheet" href="../estilos/styles.css">
+    <link rel="stylesheet" href="../estilos/combos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html"><img src="../recursos/logo.png" alt="Logo de Pizza"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="menu.html">Menús</a></li>
+                    <li><a href="combos.html" class="active">Combos</a></li>
+                    <li><a href="promociones.html">Promociones</a></li>
+                    <li><a href="crea-tu-pizza.html">Crea tu pizza</a></li>
+                    <li><a href="ayuda.html">Ayuda</a></li>
+                    <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="chat-button">
+                <a href="login-registro.html"><button class="btn-chat">Entrar</button></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="combos-main">
+        <section class="combos-hero">
+            <div class="combos-hero-content">
+                <h1>Nuestros Combos</h1>
+                <p>Ahorra con nuestras deliciosas combinaciones</p>
+            </div>
+        </section>
+
+        <section class="combos-categories">
+            <div class="combos-container">
+                <div class="category-tabs">
+                    <button class="category-tab active" data-category="pequenos">Pequeños</button>
+                    <button class="category-tab" data-category="medianos">Medianos</button>
+                    <button class="category-tab" data-category="grandes">Grandes</button>
+                    <button class="category-tab" data-category="personalizado">Crea tu Combo</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Combos Pequeños -->
+        <section id="pequenos" class="combos-section active">
+            <div class="combos-container">
+                <h2 class="section-title">Combos Pequeños</h2>
+                <p class="section-description">Ideales para 1-2 personas</p>
+                
+                <div class="combos-grid">
+                    <div class="combo-item">
+                        <div class="combo-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Combo Individual">
+                            <div class="combo-badge">Ahorra 15%</div>
+                        </div>
+                        <div class="combo-item-info">
+                            <h3>Combo Individual</h3>
+                            <ul class="combo-contents">
+                                <li>1 Pizza Personal (a elegir)</li>
+                                <li>1 Refresco 600ml</li>
+                                <li>1 Postre individual</li>
+                            </ul>
+                            <div class="combo-item-price">
+                                <span class="price-before">$120.00</span>
+                                <span class="price">$99.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="combo-item">
+                        <div class="combo-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Combo Pareja">
+                            <div class="combo-badge">Ahorra 20%</div>
+                        </div>
+                        <div class="combo-item-info">
+                            <h3>Combo Pareja</h3>
+                            <ul class="combo-contents">
+                                <li>1 Pizza Mediana (a elegir)</li>
+                                <li>2 Refrescos 600ml</li>
+                                <li>1 Orden de papas</li>
+                            </ul>
+                            <div class="combo-item-price">
+                                <span class="price-before">$199.00</span>
+                                <span class="price">$159.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="combo-item">
+                        <div class="combo-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Combo Amigos">
+                            <div class="combo-badge">Ahorra 25%</div>
+                        </div>
+                        <div class="combo-item-info">
+                            <h3>Combo Amigos</h3>
+                            <ul class="combo-contents">
+                                <li>2 Pizzas Pequeñas (a elegir)</li>
+                                <li>2 Refrescos 600ml</li>
+                                <li>4 Volovanes</li>
+                            </ul>
+                            <div class="combo-item-price">
+                                <span class="price-before">$249.00</span>
+                                <span class="price">$189.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Combos Medianos -->
+        <section id="medianos" class="combos-section">
+            <div class="combos-container">
+                <h2 class="section-title">Combos Medianos</h2>
+                <p class="section-description">Ideales para 3-4 personas</p>
+                
+                <div class="combos-grid">
+                    <div class="combo-item">
+                        <div class="combo-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Combo Familiar">
+                            <div class="combo-badge">Ahorra 20%</div>
+                        </div>
+                        <div class="combo-item-info">
+                            <h3>Combo Familiar</h3>
+                            <ul class="combo-contents">
+                                <li>1 Pizza Grande (a elegir)</li>
+                                <li>1 Pizza Mediana (a elegir)</li>
+                                <li>1 Refresco 1.5L</li>
+                                <li>1 Orden de papas grande</li>
+                            </ul>
+                            <div class="combo-item-price">
+                                <span class="price-before">$349.00</span>
+                                <span class="price">$279.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="combo-item">
+                        <div class="combo-item-image">
+                            <img src="../recursos/promo2.jpeg" alt="Combo Dulce y Salado">
+                            <div class="combo-badge">Ahorra 25%</div>
+                        </div>
+                        <div class="combo-item-info">
+                            <h3>Combo Dulce y Salado</h3>
+                            <ul class="combo-contents">
+                                <li>1 Pizza Grande (a elegir)</li>
+                                <li>1 Pizza Mediana Dulce</li>
+                                <li>1 Refresco 1.5L</li>
+                                <li>4 Hojaldras</li>
+                            </ul>
+                            <div class="combo-item-price">
+                                <span class="price-before">$399.00</span>
+                                <span class="price">$299.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="combo-item">
+                        <div class="combo-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Combo Fiesta">
+                            <div class="combo-badge">Ahorra 30%</div>
+                        </div>
+                        <div class="combo-item-info">
+                            <h3>Combo Fiesta</h3>
+                            <ul class="combo-contents">
+                                <li>2 Pizzas Medianas (a elegir)</li>
+                                <li>1 Orden de papas grande</li>
+                                <li>8 Volovanes</li>
+                                <li>2 Refrescos 1.5L</li>
+                            </ul>
+                            <div class="combo-item-price">
+                                <span class="price-before">$449.00</span>
+                                <span class="price">$319.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Combos Grandes -->
+        <section id="grandes" class="combos-section">
+            <div class="combos-container">
+                <h2 class="section-title">Combos Grandes</h2>
+                <p class="section-description">Ideales para 5+ personas</p>
+                
+                <div class="combos-grid">
+                    <div class="combo-item">
+                        <div class="combo-item-image">
+                            <img src="../recursos/promo1.png" alt="Combo Celebración">
+                            <div class="combo-badge">Ahorra 25%</div>
+                        </div>
+                        <div class="combo-item-info">
+                            <h3>Combo Celebración</h3>
+                            <ul class="combo-contents">
+                                <li>2 Pizzas Grandes (a elegir)</li>
+                                <li>1 Orden de palitos de pan</li>
+                                <li>1 Pastel</li>
+                                <li>2 Refrescos 1.5L</li>
+                            </ul>
+                            <div class="combo-item-price">
+                                <span class="price-before">$599.00</span>
+                                <span class="price">$449.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="combo-item">
+                        <div class="combo-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Combo Mega Fiesta">
+                            <div class="combo-badge">Ahorra 30%</div>
+                        </div>
+                        <div class="combo-item-info">
+                            <h3>Combo Mega Fiesta</h3>
+                            <ul class="combo-contents">
+                                <li>3 Pizzas Grandes (a elegir)</li>
+                                <li>2 Órdenes de papas grandes</li>
+                                <li>12 Volovanes</li>
+                                <li>3 Refrescos 1.5L</li>
+                            </ul>
+                            <div class="combo-item-price">
+                                <span class="price-before">$799.00</span>
+                                <span class="price">$559.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="combo-item">
+                        <div class="combo-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Combo Reunión">
+                            <div class="combo-badge">Ahorra 35%</div>
+                        </div>
+                        <div class="combo-item-info">
+                            <h3>Combo Reunión</h3>
+                            <ul class="combo-contents">
+                                <li>4 Pizzas Grandes (a elegir)</li>
+                                <li>2 Órdenes de papas grandes</li>
+                                <li>8 Hojaldras</li>
+                                <li>4 Refrescos 1.5L</li>
+                                <li>8 Helados</li>
+                            </ul>
+                            <div class="combo-item-price">
+                                <span class="price-before">$1,199.00</span>
+                                <span class="price">$779.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Crea tu Combo -->
+        <section id="personalizado" class="combos-section">
+            <div class="combos-container">
+                <h2 class="section-title">Crea tu Combo</h2>
+                <p class="section-description">Personaliza tu combo perfecto y ahorra hasta un 25%</p>
+                
+                <div class="create-combo-container">
+                    <div class="combo-builder">
+                        <div class="combo-step">
+                            <h3>1. Elige tus pizzas</h3>
+                            <div class="combo-options">
+                                <div class="combo-option">
+                                    <label>
+                                        <input type="checkbox" name="pizza" value="pequena">
+                                        Pizza Pequeña
+                                    </label>
+                                    <select class="pizza-type">
+                                        <option value="">Selecciona el tipo</option>
+                                        <option value="pepperoni">Pepperoni</option>
+                                        <option value="hawaiana">Hawaiana</option>
+                                        <option value="mexicana">Mexicana</option>
+                                        <option value="vegetariana">Vegetariana</option>
+                                        <option value="suprema">Suprema</option>
+                                    </select>
+                                    <select class="quantity">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <div class="combo-option">
+                                    <label>
+                                        <input type="checkbox" name="pizza" value="mediana">
+                                        Pizza Mediana
+                                    </label>
+                                    <select class="pizza-type">
+                                        <option value="">Selecciona el tipo</option>
+                                        <option value="pepperoni">Pepperoni</option>
+                                        <option value="hawaiana">Hawaiana</option>
+                                        <option value="mexicana">Mexicana</option>
+                                        <option value="vegetariana">Vegetariana</option>
+                                        <option value="suprema">Suprema</option>
+                                    </select>
+                                    <select class="quantity">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <div class="combo-option">
+                                    <label>
+                                        <input type="checkbox" name="pizza" value="grande">
+                                        Pizza Grande
+                                    </label>
+                                    <select class="pizza-type">
+                                        <option value="">Selecciona el tipo</option>
+                                        <option value="pepperoni">Pepperoni</option>
+                                        <option value="hawaiana">Hawaiana</option>
+                                        <option value="mexicana">Mexicana</option>
+                                        <option value="vegetariana">Vegetariana</option>
+                                        <option value="suprema">Suprema</option>
+                                    </select>
+                                    <select class="quantity">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="combo-step">
+                            <h3>2. Elige tus complementos</h3>
+                            <div class="combo-options">
+                                <div class="combo-option">
+                                    <label>
+                                        <input type="checkbox" name="complemento" value="papas">
+                                        Papas Fritas
+                                    </label>
+                                    <select class="quantity">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <div class="combo-option">
+                                    <label>
+                                        <input type="checkbox" name="complemento" value="volovanes">
+                                        Volovanes (4 piezas)
+                                    </label>
+                                    <select class="quantity">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <div class="combo-option">
+                                    <label>
+                                        <input type="checkbox" name="complemento" value="hojaldras">
+                                        Hojaldras (4 piezas)
+                                    </label>
+                                    <select class="quantity">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="combo-step">
+                            <h3>3. Elige tus bebidas</h3>
+                            <div class="combo-options">
+                                <div class="combo-option">
+                                    <label>
+                                        <input type="checkbox" name="bebida" value="refresco-personal">
+                                        Refresco 600ml
+                                    </label>
+                                    <select class="quantity">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <div class="combo-option">
+                                    <label>
+                                        <input type="checkbox" name="bebida" value="refresco-familiar">
+                                        Refresco 1.5L
+                                    </label>
+                                    <select class="quantity">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <div class="combo-option">
+                                    <label>
+                                        <input type="checkbox" name="bebida" value="agua">
+                                        Agua 600ml
+                                    </label>
+                                    <select class="quantity">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="combo-step">
+                            <h3>4. Elige tus postres</h3>
+                            <div class="combo-options">
+                                <div class="combo-option">
+                                    <label>
+                                        <input type="checkbox" name="postre" value="helado">
+                                        Helado (vaso o cono)
+                                    </label>
+                                    <select class="quantity">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <div class="combo-option">
+                                    <label>
+                                        <input type="checkbox" name="postre" value="pastel">
+                                        Pastel (8 porciones)
+                                    </label>
+                                    <select class="quantity">
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="combo-summary">
+                        <h3>Tu Combo Personalizado</h3>
+                        <div class="summary-content">
+                            <p>Selecciona los productos para crear tu combo</p>
+                            <ul id="combo-items-list">
+                                <!-- Los items seleccionados aparecerán aquí -->
+                            </ul>
+                        </div>
+                        <div class="summary-pricing">
+                            <div class="price-row">
+                                <span>Precio regular:</span>
+                                <span id="regular-price">$0.00</span>
+                            </div>
+                            <div class="price-row">
+                                <span>Descuento:</span>
+                                <span id="discount">-$0.00</span>
+                            </div>
+                            <div class="price-row total">
+                                <span>Total:</span>
+                                <span id="total-price">$0.00</span>
+                            </div>
+                        </div>
+                        <button class="btn-add-combo">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="register-banner">
+            <div class="register-content">
+                <p>Regístrate y disfruta de la experiencia completa:</p>
+                <p>Ofertas, descuentos, compras y muchas, muchas sorpresas</p>
+                <a href="login-registro.html"><button class="btn-login">Iniciar sesión</button></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../recursos/logo.png" alt="Logo de Pizza">
+            </div>
+            <div class="footer-section">
+                <h3>Sobre nosotros</h3>
+                <ul>
+                    <li><a href="#">Ubicación</a></li>
+                    <li><a href="#">Historia</a></li>
+                    <li><a href="#">Contactanos</a></li>
+                    <li><a href="#">Aviso de privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Atención al cliente</a></li>
+                    <li><a href="#">Cómo realizar un pedido</a></li>
+                    <li><a href="#">Estado de tu pedido</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contáctanos</h3>
+                <div class="contact-info">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p>Número de teléfono:</p>
+                    <p>+123 456 789 0123</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scrips/script.js"></script>
+    <script src="../scrips/combos.js"></script>
+</body>
+</html>

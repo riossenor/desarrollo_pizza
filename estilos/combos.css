@@ -1,0 +1,404 @@
+/* Estilos específicos para la página de Combos */
+
+.combos-main {
+  background-color: #ffb6b6;
+}
+
+.combos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Hero section */
+.combos-hero {
+  background-image: url("../recursos/pizza-hero.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.combos-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.combos-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+}
+
+.combos-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.combos-hero p {
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Category tabs */
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.category-tab {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.category-tab:hover {
+  background-color: #e0e0e0;
+}
+
+.category-tab.active {
+  background-color: #ff0000;
+  color: white;
+}
+
+/* Section titles */
+.section-title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.section-description {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Combos sections */
+.combos-section {
+  display: none;
+}
+
+.combos-section.active {
+  display: block;
+}
+
+/* Combos grid */
+.combos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Combo items */
+.combo-item {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.combo-item:hover {
+  transform: translateY(-5px);
+}
+
+.combo-item-image {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.combo-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.combo-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff0000;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.combo-item-info {
+  padding: 15px;
+}
+
+.combo-item-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+}
+
+.combo-contents {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 15px;
+  min-height: 100px;
+}
+
+.combo-contents li {
+  padding: 5px 0;
+  color: #666;
+  font-size: 0.9rem;
+  position: relative;
+  padding-left: 20px;
+}
+
+.combo-contents li::before {
+  content: "•";
+  position: absolute;
+  left: 5px;
+  color: #ff0000;
+}
+
+.combo-item-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.price-before {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.price {
+  font-weight: bold;
+  color: #ff0000;
+  font-size: 1.2rem;
+}
+
+.btn-add {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.btn-add:hover {
+  background-color: #cc0000;
+}
+
+/* Create your combo section */
+.create-combo-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+@media (min-width: 992px) {
+  .create-combo-container {
+    flex-direction: row;
+  }
+}
+
+.combo-builder {
+  flex: 2;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.combo-summary {
+  flex: 1;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
+}
+
+.combo-step {
+  margin-bottom: 25px;
+}
+
+.combo-step h3 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.combo-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.combo-option {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.combo-option label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 150px;
+}
+
+.combo-option select {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.pizza-type {
+  min-width: 180px;
+}
+
+.quantity {
+  width: 60px;
+}
+
+.combo-summary h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.summary-content {
+  min-height: 200px;
+}
+
+#combo-items-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+#combo-items-list li {
+  padding: 5px 0;
+  border-bottom: 1px dashed #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary-pricing {
+  margin: 20px 0;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.price-row.total {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.btn-add-combo {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.btn-add-combo:hover {
+  background-color: #cc0000;
+}
+
+/* Estilos para el enlace activo en la navegación */
+.main-nav ul li a.active {
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .combos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .combo-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .category-tabs {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .category-tab {
+    flex: 0 0 auto;
+  }
+
+  .combo-option {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .combo-option select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .combos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .combos-hero h1 {
+    font-size: 2rem;
+  }
+}

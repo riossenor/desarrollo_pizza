@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promociones - Pizza Delivery</title>
+    <link rel="stylesheet" href="../estilos/styles.css">
+    <link rel="stylesheet" href="../estilos/promociones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html"><img src="../recursos/logo.png" alt="Logo de Pizza"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="menu.html">Menús</a></li>
+                    <li><a href="combos.html">Combos</a></li>
+                    <li><a href="promociones.html" class="active">Promociones</a></li>
+                    <li><a href="crea-tu-pizza.html">Crea tu pizza</a></li>
+                    <li><a href="ayuda.html">Ayuda</a></li>
+                    <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="chat-button">
+                <a href="login-registro.html"><button class="btn-chat">Entrar</button></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="promos-main">
+        <section class="promos-hero">
+            <div class="promos-hero-content">
+                <h1>Promociones</h1>
+                <p>¡Aprovecha nuestras increíbles ofertas y ahorra en tus pedidos favoritos!</p>
+            </div>
+        </section>
+
+        <section class="promos-categories">
+            <div class="promos-container">
+                <div class="category-tabs">
+                    <button class="category-tab active" data-category="relampago">Ventas Relámpago</button>
+                    <button class="category-tab" data-category="combos">Combos en Promoción</button>
+                    <button class="category-tab" data-category="pizzas">Pizzas en Promoción</button>
+                    <button class="category-tab" data-category="eventos">Eventos</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Ventas Relámpago -->
+        <section id="relampago" class="promos-section active">
+            <div class="promos-container">
+                <div class="section-header">
+                    <h2 class="section-title">Ventas Relámpago</h2>
+                    <p class="section-description">¡50% de descuento! Ofertas por tiempo limitado</p>
+                    <div class="countdown-timer">
+                        <p>Termina en: <span id="countdown">05:59:59</span></p>
+                    </div>
+                </div>
+                
+                <div class="promos-grid">
+                    <div class="promo-item flash-sale">
+                        <div class="promo-item-image">
+                            <img src="../recursos/pizza-pepperoni.jpeg" alt="Pizza Pepperoni">
+                            <div class="promo-badge flash">50% OFF</div>
+                            <div class="promo-timer">
+                                <i class="fas fa-clock"></i> Termina pronto
+                            </div>
+                        </div>
+                        <div class="promo-item-info">
+                            <h3>Pizza Pepperoni Grande</h3>
+                            <p>Deliciosa pizza de pepperoni con extra queso</p>
+                            <div class="promo-item-price">
+                                <span class="price-before">$169.00</span>
+                                <span class="price">$84.50</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-item flash-sale">
+                        <div class="promo-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Combo Familiar">
+                            <div class="promo-badge flash">50% OFF</div>
+                            <div class="promo-timer">
+                                <i class="fas fa-clock"></i> Termina pronto
+                            </div>
+                        </div>
+                        <div class="promo-item-info">
+                            <h3>Combo Familiar</h3>
+                            <p>1 Pizza Grande + 1 Orden de Papas + 4 Refrescos</p>
+                            <div class="promo-item-price">
+                                <span class="price-before">$299.00</span>
+                                <span class="price">$149.50</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-item flash-sale">
+                        <div class="promo-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Paquete de Volovanes">
+                            <div class="promo-badge flash">50% OFF</div>
+                            <div class="promo-timer">
+                                <i class="fas fa-clock"></i> Termina pronto
+                            </div>
+                        </div>
+                        <div class="promo-item-info">
+                            <h3>Paquete de Volovanes</h3>
+                            <p>12 Volovanes surtidos: jamón, champiñones y atún</p>
+                            <div class="promo-item-price">
+                                <span class="price-before">$120.00</span>
+                                <span class="price">$60.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Combos en Promoción -->
+        <section id="combos" class="promos-section">
+            <div class="promos-container">
+                <div class="section-header">
+                    <h2 class="section-title">Combos en Promoción</h2>
+                    <p class="section-description">Ahorra con nuestros combos especiales</p>
+                </div>
+                
+                <div class="promos-grid">
+                    <div class="promo-item">
+                        <div class="promo-item-image">
+                            <img src="../recursos/promo1.png" alt="Combo Celebración">
+                            <div class="promo-badge">30% OFF</div>
+                        </div>
+                        <div class="promo-item-info">
+                            <h3>Combo Celebración</h3>
+                            <p>Pizza + Palitos de pan + Pastel + Refresco</p>
+                            <div class="promo-item-price">
+                                <span class="price-before">$399.00</span>
+                                <span class="price">$279.30</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-item">
+                        <div class="promo-item-image">
+                            <img src="../recursos/promo2.jpeg" alt="Combo Familia">
+                            <div class="promo-badge">25% OFF</div>
+                        </div>
+                        <div class="promo-item-info">
+                            <h3>Combo Familia</h3>
+                            <p>1 Pizza Grande + 1 Pizza Mediana Dulce + Refresco 1.5L</p>
+                            <div class="promo-item-price">
+                                <span class="price-before">$349.00</span>
+                                <span class="price">$261.75</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-item">
+                        <div class="promo-item-image">
+                            <img src="../recursos/promo3.png" alt="2x1 en Pizzas Medianas">
+                            <div class="promo-badge">2x1</div>
+                        </div>
+                        <div class="promo-item-info">
+                            <h3>2x1 en Pizzas Medianas</h3>
+                            <p>Para recoger y a domicilio</p>
+                            <div class="promo-item-price">
+                                <span class="price-before">$298.00</span>
+                                <span class="price">$149.00</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-item">
+                        <div class="promo-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Combo Amigos">
+                            <div class="promo-badge">20% OFF</div>
+                        </div>
+                        <div class="promo-item-info">
+                            <h3>Combo Amigos</h3>
+                            <p>2 Pizzas Medianas + 1 Orden de Papas + 2 Refrescos</p>
+                            <div class="promo-item-price">
+                                <span class="price-before">$329.00</span>
+                                <span class="price">$263.20</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Pizzas en Promoción -->
+        <section id="pizzas" class="promos-section">
+            <div class="promos-container">
+                <div class="section-header">
+                    <h2 class="section-title">Pizzas en Promoción</h2>
+                    <p class="section-description">Disfruta de nuestras pizzas a precios especiales</p>
+                </div>
+                
+                <div class="promos-grid">
+                    <div class="promo-item">
+                        <div class="promo-item-image">
+                            <img src="../recursos/pizza-hawaiana.jpeg" alt="Pizza Hawaiana">
+                            <div class="promo-badge">15% OFF</div>
+                        </div>
+                        <div class="promo-item-info">
+                            <h3>Pizza Hawaiana Grande</h3>
+                            <p>Jamón, piña y queso mozzarella</p>
+                            <div class="promo-item-price">
+                                <span class="price-before">$179.00</span>
+                                <span class="price">$152.15</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-item">
+                        <div class="promo-item-image">
+                            <img src="../recursos/pizza-mexicana.jpeg" alt="Pizza Mexicana">
+                            <div class="promo-badge">20% OFF</div>
+                        </div>
+                        <div class="promo-item-info">
+                            <h3>Pizza Mexicana Grande</h3>
+                            <p>Chorizo, pimientos, aceitunas negras y queso</p>
+                            <div class="promo-item-price">
+                                <span class="price-before">$189.00</span>
+                                <span class="price">$151.20</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-item">
+                        <div class="promo-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Pizza Suprema">
+                            <div class="promo-badge">25% OFF</div>
+                        </div>
+                        <div class="promo-item-info">
+                            <h3>Pizza Suprema Grande</h3>
+                            <p>Pepperoni, jamón, pimientos, cebolla, champiñones y queso</p>
+                            <div class="promo-item-price">
+                                <span class="price-before">$199.00</span>
+                                <span class="price">$149.25</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-item">
+                        <div class="promo-item-image">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Pizza 4 Quesos">
+                            <div class="promo-badge">15% OFF</div>
+                        </div>
+                        <div class="promo-item-info">
+                            <h3>Pizza 4 Quesos Grande</h3>
+                            <p>Queso mozzarella, cheddar, parmesano y queso azul</p>
+                            <div class="promo-item-price">
+                                <span class="price-before">$199.00</span>
+                                <span class="price">$169.15</span>
+                            </div>
+                            <button class="btn-add">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Eventos -->
+        <section id="eventos" class="promos-section">
+            <div class="promos-container">
+                <div class="section-header">
+                    <h2 class="section-title">Eventos Especiales</h2>
+                    <p class="section-description">Promociones exclusivas en nuestros establecimientos</p>
+                </div>
+                
+                <div class="eventos-grid">
+                    <div class="evento-item">
+                        <div class="evento-day">Martes</div>
+                        <div class="evento-content">
+                            <div class="evento-image">
+                                <img src="/placeholder.svg?height=150&width=150" alt="Helado Gratis">
+                            </div>
+                            <div class="evento-info">
+                                <h3>Martes de Helado Gratis</h3>
+                                <p>Por cada pizza grande, llévate un helado completamente gratis</p>
+                                <div class="evento-details">
+                                    <span class="evento-badge">Solo en establecimiento</span>
+                                    <span class="evento-time">De 1:00 PM a 6:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="evento-item">
+                        <div class="evento-day">Miércoles</div>
+                        <div class="evento-content">
+                            <div class="evento-image">
+                                <img src="/placeholder.svg?height=150&width=150" alt="2x1 en Pizzas">
+                            </div>
+                            <div class="evento-info">
+                                <h3>Miércoles 2x1 en Pizzas</h3>
+                                <p>Todas las pizzas medianas al 2x1 todo el día</p>
+                                <div class="evento-details">
+                                    <span class="evento-badge">Solo en establecimiento</span>
+                                    <span class="evento-time">Todo el día</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="evento-item">
+                        <div class="evento-day">Jueves</div>
+                        <div class="evento-content">
+                            <div class="evento-image">
+                                <img src="/placeholder.svg?height=150&width=150" alt="Buffet Libre">
+                            </div>
+                            <div class="evento-info">
+                                <h3>Jueves de Buffet Libre</h3>
+                                <p>Come todo lo que puedas por solo $149 por persona</p>
+                                <div class="evento-details">
+                                    <span class="evento-badge">Solo en establecimiento</span>
+                                    <span class="evento-time">De 7:00 PM a 10:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="evento-item">
+                        <div class="evento-day">Domingo</div>
+                        <div class="evento-content">
+                            <div class="evento-image">
+                                <img src="/placeholder.svg?height=150&width=150" alt="Domingo Familiar">
+                            </div>
+                            <div class="evento-info">
+                                <h3>Domingo Familiar</h3>
+                                <p>Niños menores de 10 años comen gratis con la compra de un combo familiar</p>
+                                <div class="evento-details">
+                                    <span class="evento-badge">Solo en establecimiento</span>
+                                    <span class="evento-time">Todo el día</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="register-banner">
+            <div class="register-content">
+                <p>Regístrate y disfruta de la experiencia completa:</p>
+                <p>Ofertas, descuentos, compras y muchas, muchas sorpresas</p>
+                <a href="login-registro.html"><button class="btn-login">Iniciar sesión</button></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../recursos/logo.png" alt="Logo de Pizza">
+            </div>
+            <div class="footer-section">
+                <h3>Sobre nosotros</h3>
+                <ul>
+                    <li><a href="#">Ubicación</a></li>
+                    <li><a href="#">Historia</a></li>
+                    <li><a href="#">Contactanos</a></li>
+                    <li><a href="#">Aviso de privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Atención al cliente</a></li>
+                    <li><a href="#">Cómo realizar un pedido</a></li>
+                    <li><a href="#">Estado de tu pedido</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contáctanos</h3>
+                <div class="contact-info">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p>Número de teléfono:</p>
+                    <p>+123 456 789 0123</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scrips/script.js"></script>
+    <script src="../scrips/promociones.js"></script>
+</body>
+</html>

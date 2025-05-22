@@ -1,0 +1,132 @@
+/* Estilos específicos para la página Sobre Nosotros */
+
+.about-main {
+  background-color: #ffb6b6;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Sección de Historia */
+.about-hero {
+  padding: 40px 0;
+}
+
+.about-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.history-content {
+  display: flex;
+  gap: 30px;
+}
+
+.history-text {
+  flex: 2;
+}
+
+.history-text p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.history-image {
+  flex: 1;
+  background-color: #ddd;
+  min-height: 200px;
+  border-radius: 8px;
+}
+
+/* Sección de Valores */
+.values-section {
+  padding: 20px 0 40px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.value-card {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.value-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+.value-card p {
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* Sección de Ubicación */
+.location-section {
+  padding: 40px 0;
+}
+
+.location-content {
+  display: flex;
+  gap: 30px;
+}
+
+.location-map {
+  flex: 1;
+  background-color: #ddd;
+  min-height: 300px;
+  border-radius: 8px;
+}
+
+.location-info {
+  flex: 1;
+}
+
+.location-info h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.location-info p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* Estilos para el enlace activo en la navegación */
+.main-nav ul li a.active {
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .history-content,
+  .location-content {
+    flex-direction: column;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .history-image,
+  .location-map {
+    min-height: 200px;
+    margin-top: 20px;
+  }
+}
