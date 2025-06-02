@@ -27,6 +27,12 @@ header {
   padding: 0 20px;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 .logo img {
   height: 50px;
   width: auto;
@@ -61,6 +67,41 @@ header {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+}
+
+/* Agregar después de los estilos del header */
+.cart-icon {
+  position: relative;
+  margin-left: 15px;
+}
+
+.cart-icon a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cart-icon a:hover {
+  color: #ff6b6b;
+}
+
+.cart-count {
+  background-color: #00b300;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  position: absolute;
+  top: -8px;
+  right: -8px;
 }
 
 /* Hero section */

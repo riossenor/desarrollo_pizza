@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - Pizza Delivery</title>
+    <link rel="stylesheet" href="../estilos/styles.css">
+    <link rel="stylesheet" href="../estilos/carrito.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html"><img src="../recursos/logo.png" alt="Logo de Pizza"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="menu.html">Menús</a></li>
+                    <li><a href="combos.html">Combos</a></li>
+                    <li><a href="promociones.html">Promociones</a></li>
+                    <li><a href="crea-tu-pizza.html">Crea tu pizza</a></li>
+                    <li><a href="ayuda.html">Ayuda</a></li>
+                    <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="chat-button">
+                <a href="login-registro.html"><button class="btn-chat">Entrar</button></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-main">
+        <section class="cart-hero">
+            <div class="cart-hero-content">
+                <h1>Tu Carrito de Compras</h1>
+                <p>Revisa tu pedido y elige tu método de entrega</p>
+            </div>
+        </section>
+
+        <section class="cart-container">
+            <div class="cart-content">
+                <!-- Carrito de productos -->
+                <div class="cart-items-section">
+                    <div class="cart-header">
+                        <h2>Productos en tu carrito</h2>
+                        <button id="clear-cart" class="btn-clear">
+                            <i class="fas fa-trash"></i>
+                            Vaciar carrito
+                        </button>
+                    </div>
+
+                    <div id="cart-items" class="cart-items">
+                        <!-- Los productos se cargarán dinámicamente aquí -->
+                    </div>
+
+                    <div id="empty-cart" class="empty-cart">
+                        <div class="empty-cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>Tu carrito está vacío</h3>
+                        <p>Agrega algunos productos deliciosos para comenzar</p>
+                        <a href="menu.html" class="btn-continue-shopping">
+                            <i class="fas fa-arrow-left"></i>
+                            Continuar comprando
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Resumen y checkout -->
+                <div class="cart-summary-section">
+                    <div class="delivery-options">
+                        <h3>Método de entrega</h3>
+                        <div class="delivery-tabs">
+                            <button class="delivery-tab active" data-delivery="pickup">
+                                <i class="fas fa-store"></i>
+                                Recoger en tienda
+                            </button>
+                            <button class="delivery-tab" data-delivery="delivery">
+                                <i class="fas fa-truck"></i>
+                                Entrega a domicilio
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Información de recogida -->
+                    <div id="pickup-info" class="delivery-info active">
+                        <div class="store-info">
+                            <h4>Información de la tienda</h4>
+                            <div class="store-details">
+                                <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Colonia Centro</p>
+                                <p><i class="fas fa-clock"></i> Lunes a Domingo: 11:00 AM - 11:00 PM</p>
+                                <p><i class="fas fa-phone"></i> +123 456 789 0123</p>
+                            </div>
+                            <div class="pickup-time">
+                                <label for="pickup-time-select">Hora de recogida:</label>
+                                <select id="pickup-time-select">
+                                    <option value="">Selecciona una hora</option>
+                                    <option value="asap">Lo antes posible (20-30 min)</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="12:30">12:30 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="13:30">1:30 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="14:30">2:30 PM</option>
+                                    <option value="15:00">3:00 PM</option>
+                                    <option value="15:30">3:30 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                    <option value="16:30">4:30 PM</option>
+                                    <option value="17:00">5:00 PM</option>
+                                    <option value="17:30">5:30 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="18:30">6:30 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="19:30">7:30 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="20:30">8:30 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                    <option value="21:30">9:30 PM</option>
+                                    <option value="22:00">10:00 PM</option>
+                                    <option value="22:30">10:30 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información de entrega -->
+                    <div id="delivery-info" class="delivery-info">
+                        <div class="delivery-form">
+                            <h4>Información de entrega</h4>
+                            <form id="delivery-form">
+                                <div class="form-group">
+                                    <label for="delivery-address">Dirección completa *</label>
+                                    <input type="text" id="delivery-address" placeholder="Calle, número, colonia" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="delivery-city">Ciudad *</label>
+                                        <input type="text" id="delivery-city" placeholder="Ciudad" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="delivery-zip">Código Postal *</label>
+                                        <input type="text" id="delivery-zip" placeholder="12345" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="delivery-instructions">Instrucciones de entrega (opcional)</label>
+                                    <textarea id="delivery-instructions" placeholder="Ej: Casa azul, portón negro, tocar el timbre"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="delivery-phone">Teléfono de contacto *</label>
+                                    <input type="tel" id="delivery-phone" placeholder="+52 123 456 7890" required>
+                                </div>
+                            </form>
+                            <div class="delivery-time">
+                                <label for="delivery-time-select">Hora de entrega:</label>
+                                <select id="delivery-time-select">
+                                    <option value="">Selecciona una hora</option>
+                                    <option value="asap">Lo antes posible (45-60 min)</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="12:30">12:30 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="13:30">1:30 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="14:30">2:30 PM</option>
+                                    <option value="15:00">3:00 PM</option>
+                                    <option value="15:30">3:30 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                    <option value="16:30">4:30 PM</option>
+                                    <option value="17:00">5:00 PM</option>
+                                    <option value="17:30">5:30 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="18:30">6:30 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="19:30">7:30 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="20:30">8:30 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                    <option value="21:30">9:30 PM</option>
+                                    <option value="22:00">10:00 PM</option>
+                                    <option value="22:30">10:30 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resumen del pedido -->
+                    <div class="order-summary">
+                        <h3>Resumen del pedido</h3>
+                        <div class="summary-line">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">$0.00</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Descuentos:</span>
+                            <span id="discounts">-$0.00</span>
+                        </div>
+                        <div class="summary-line delivery-fee">
+                            <span>Costo de envío:</span>
+                            <span id="delivery-fee">Gratis</span>
+                        </div>
+                        <div class="summary-line tax">
+                            <span>Impuestos (16%):</span>
+                            <span id="tax">$0.00</span>
+                        </div>
+                        <div class="summary-line total">
+                            <span>Total:</span>
+                            <span id="total">$0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Código de descuento -->
+                    <div class="promo-code">
+                        <h4>¿Tienes un código de descuento?</h4>
+                        <div class="promo-input">
+                            <input type="text" id="promo-code-input" placeholder="Ingresa tu código">
+                            <button id="apply-promo" class="btn-apply">Aplicar</button>
+                        </div>
+                        <div id="promo-message" class="promo-message"></div>
+                    </div>
+
+                    <!-- Método de pago -->
+                    <div class="payment-methods">
+                        <h3>Método de pago</h3>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="cash" checked>
+                                <div class="payment-card">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>Efectivo</span>
+                                </div>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="card">
+                                <div class="payment-card">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Tarjeta</span>
+                                </div>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="transfer">
+                                <div class="payment-card">
+                                    <i class="fas fa-university"></i>
+                                    <span>Transferencia</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Información de pago con efectivo -->
+                    <div id="cash-payment" class="payment-info active">
+                        <div class="form-group">
+                            <label for="cash-amount">¿Con cuánto vas a pagar?</label>
+                            <input type="number" id="cash-amount" placeholder="Ej: 500" min="0" step="0.01">
+                            <small>Tu cambio será: <span id="change-amount">$0.00</span></small>
+                        </div>
+                    </div>
+
+                    <!-- Información de pago con tarjeta -->
+                    <div id="card-payment" class="payment-info">
+                        <div class="form-group">
+                            <label for="card-number">Número de tarjeta</label>
+                            <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card-expiry">Vencimiento</label>
+                                <input type="text" id="card-expiry" placeholder="MM/AA" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label for="card-cvv">CVV</label>
+                                <input type="text" id="card-cvv" placeholder="123" maxlength="4">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-name">Nombre en la tarjeta</label>
+                            <input type="text" id="card-name" placeholder="Juan Pérez">
+                        </div>
+                    </div>
+
+                    <!-- Información de transferencia -->
+                    <div id="transfer-payment" class="payment-info">
+                        <div class="transfer-info">
+                            <h4>Datos para transferencia</h4>
+                            <div class="bank-details">
+                                <p><strong>Banco:</strong> Banco Nacional</p>
+                                <p><strong>Cuenta:</strong> 1234567890</p>
+                                <p><strong>CLABE:</strong> 012345678901234567</p>
+                                <p><strong>Beneficiario:</strong> Pizza Delivery S.A. de C.V.</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="transfer-reference">Referencia de transferencia</label>
+                                <input type="text" id="transfer-reference" placeholder="Ingresa la referencia de tu transferencia">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botón de checkout -->
+                    <button id="checkout-btn" class="btn-checkout" disabled>
+                        <i class="fas fa-lock"></i>
+                        Realizar pedido
+                    </button>
+
+                    <div class="security-info">
+                        <p><i class="fas fa-shield-alt"></i> Tu información está protegida con encriptación SSL</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal de confirmación -->
+        <div id="order-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>¡Pedido confirmado!</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="order-details">
+                        <p><strong>Número de pedido:</strong> <span id="order-number"></span></p>
+                        <p><strong>Tiempo estimado:</strong> <span id="estimated-time"></span></p>
+                        <p><strong>Total:</strong> <span id="order-total"></span></p>
+                    </div>
+                    <div class="order-tracking">
+                        <p>Puedes seguir tu pedido en tiempo real</p>
+                        <button class="btn-track">Seguir pedido</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../recursos/logo.png" alt="Logo de Pizza">
+            </div>
+            <div class="footer-section">
+                <h3>Sobre nosotros</h3>
+                <ul>
+                    <li><a href="#">Ubicación</a></li>
+                    <li><a href="#">Historia</a></li>
+                    <li><a href="#">Contactanos</a></li>
+                    <li><a href="#">Aviso de privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Atención al cliente</a></li>
+                    <li><a href="#">Cómo realizar un pedido</a></li>
+                    <li><a href="#">Estado de tu pedido</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contáctanos</h3>
+                <div class="contact-info">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p>Número de teléfono:</p>
+                    <p>+123 456 789 0123</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scrips/script.js"></script>
+    <script src="../scrips/carrito.js"></script>
+</body>
+</html>

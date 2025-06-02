@@ -1,8 +1,24 @@
 {
-  "name": "my-v0-project",
+  "name": "pizzadeliveryapp",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "echo 'no build script'"
+  },
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riossenor/massamadre.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riossenor/massamadre/issues"
+  },
+  "homepage": "https://github.com/riossenor/massamadre#readme",
+  "description": "",
+  "dependencies": {
+    "mysql": "^2.18.1"
   }
 }

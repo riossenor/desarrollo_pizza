@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   registerForm.addEventListener("submit", (e) => {
-    e.preventDefault()
+    
 
     const name = document.getElementById("register-name").value.trim()
     const email = document.getElementById("register-email").value.trim()
@@ -144,6 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Simulación de registro exitoso
     alert("¡Registro exitoso! Ahora puedes iniciar sesión")
+    
+
 
     // Cambiar a la pestaña de inicio de sesión
     authTabs[0].click()
