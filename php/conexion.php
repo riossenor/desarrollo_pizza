@@ -7,12 +7,7 @@ $bd = 'masamadre';
 
 $conexion = new mysqli($host, $user, $contra, $bd);
 
-if ($conexion -> connect_erro){
-    die('Error'.$conexion->connect_error);
-
-}else{
-    echo '<h2>Conexion exitosa</h2>';
+if ($conexion->connect_error) {
+    die('Error: ' . $conexion->connect_error);
 }
-
-
 ?>

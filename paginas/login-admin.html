@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Administrativo - Pizza Delivery</title>
+    <link rel="stylesheet" href="../estilos/styles.css">
+    <link rel="stylesheet" href="../estilos/login-registro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html"><img src="../recursos/logo.png" alt="Logo de Pizza"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="menu.html">Menús</a></li>
+                    <li><a href="combos.html">Combos</a></li>
+                    <li><a href="promociones.html">Promociones</a></li>
+                    <li><a href="crea-tu-pizza.html">Crea tu pizza</a></li>
+                    <li><a href="ayuda.html">Ayuda</a></li>
+                    <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="cart-icon">
+                    <a href="carrito.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrito</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+                <div class="chat-button">
+                    <a href="login-registro.html"><button class="btn-chat">Entrar</button></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="auth-main">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="admin-login-header">
+                    <i class="fas fa-shield-alt" style="font-size: 3rem; color: #3498db; margin-bottom: 20px;"></i>
+                    <h2>Acceso Administrativo</h2>
+                    <p>Ingresa tus credenciales de administrador</p>
+                </div>
+                
+                <form id="admin-login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="admin-username">Usuario Administrador</label>
+                        <input type="text" id="admin-username" name="admin-username" value="admin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-password">Contraseña</label>
+                        <div class="password-input">
+                            <input type="password" id="admin-password" name="admin-password" value="admin123" required>
+                            <button type="button" class="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="remember-admin">
+                            Recordar sesión
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-auth">Acceder al Panel</button>
+                    
+                    <div class="admin-info">
+                        <p><i class="fas fa-info-circle"></i> Credenciales de prueba:</p>
+                        <p><strong>Usuario:</strong> admin</p>
+                        <p><strong>Contraseña:</strong> admin123</p>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="auth-benefits">
+                <h2>Panel de Administración</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Estadísticas Avanzadas</h3>
+                            <p>Visualiza ventas, productos más vendidos y tendencias</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Gestión de Menú</h3>
+                            <p>Agrega, modifica y elimina productos del menú</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Control de Pedidos</h3>
+                            <p>Monitorea y gestiona todos los pedidos en tiempo real</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Ventas Flash</h3>
+                            <p>Crea ofertas especiales y gestiona productos cancelados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../recursos/logo.png" alt="Logo de Pizza">
+            </div>
+            <div class="footer-section">
+                <h3>Sobre nosotros</h3>
+                <ul>
+                    <li><a href="#">Ubicación</a></li>
+                    <li><a href="#">Historia</a></li>
+                    <li><a href="#">Contactanos</a></li>
+                    <li><a href="#">Aviso de privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Atención al cliente</a></li>
+                    <li><a href="#">Cómo realizar un pedido</a></li>
+                    <li><a href="#">Estado de tu pedido</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contáctanos</h3>
+                <div class="contact-info">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p>Número de teléfono:</p>
+                    <p>+123 456 789 0123</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const adminForm = document.getElementById("admin-login-form")
+            const togglePassword = document.querySelector(".toggle-password")
+            const passwordInput = document.getElementById("admin-password")
+
+            // Toggle password visibility
+            togglePassword.addEventListener("click", () => {
+                const type = passwordInput.getAttribute("type") === "password" ? "text" : "password"
+                passwordInput.setAttribute("type", type)
+                
+                const icon = togglePassword.querySelector("i")
+                icon.classList.toggle("fa-eye")
+                icon.classList.toggle("fa-eye-slash")
+            })
+
+            // Handle admin login
+            adminForm.addEventListener("submit", (e) => {
+                e.preventDefault()
+                
+                const username = document.getElementById("admin-username").value
+                const password = document.getElementById("admin-password").value
+                
+                // Simple authentication (in production, this would be server-side)
+                if (username === "admin" && password === "admin123") {
+                    alert("¡Acceso concedido! Redirigiendo al panel de administración...")
+                    window.location.href = "admin.html"
+                } else {
+                    alert("Credenciales incorrectas. Intenta de nuevo.")
+                }
+            })
+        })
+    </script>
+</body>
+</html>

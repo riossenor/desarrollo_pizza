@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const isLoggedIn = Boolean(window.usuarioId)
+
   // Elementos del DOM
   const cartItemsContainer = document.getElementById("cart-items")
   const emptyCartContainer = document.getElementById("empty-cart")
@@ -30,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let appliedPromo = null
   let deliveryFee = 0
 
+  cargarCarritoDesdeServidor()
+
   // Códigos de descuento válidos
   const promoCodes = {
     DESCUENTO10: { type: "percentage", value: 10, description: "10% de descuento" },
@@ -38,119 +42,103 @@ document.addEventListener("DOMContentLoaded", () => {
     NUEVOCLIENTE: { type: "percentage", value: 15, description: "15% de descuento para nuevos clientes" },
   }
 
-  // Inicializar carrito con datos de ejemplo
   function initializeCart() {
-    // Datos de ejemplo para demostración
-    cart = [
-      {
-        id: 1,
-        name: "Pizza Pepperoni Grande",
-        description: "Pepperoni y queso mozzarella",
-        customizations: "Masa tradicional, extra queso",
-        price: 169,
-        quantity: 2,
-        image: "pizza-pepperoni.jpeg",
-      },
-      {
-        id: 2,
-        name: "Combo Familiar",
-        description: "1 Pizza Grande + 1 Orden de Papas + 4 Refrescos",
-        customizations: "",
-        price: 279,
-        quantity: 1,
-        image: "/placeholder.svg?height=80&width=80",
-      },
-      {
-        id: 3,
-        name: "Pizza Hawaiana Mediana",
-        description: "Jamón, piña y queso mozzarella",
-        customizations: "Masa delgada, sin piña",
-        price: 139,
-        quantity: 1,
-        image: "pizza-hawaiana.jpeg",
-      },
-    ]
-
+    const local = localStorage.getItem("carrito")
+    cart = local ? JSON.parse(local) : []
     renderCart()
     updateSummary()
   }
 
-  // Renderizar carrito
-  function renderCart() {
-    if (cart.length === 0) {
-      cartItemsContainer.style.display = "none"
-      emptyCartContainer.classList.add("show")
-      checkoutBtn.disabled = true
+  function guardarCarritoEnServidor() {
+    if (!isLoggedIn) return
+
+    fetch("guardar_carrito.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ carrito: cart })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          console.log("Carrito guardado exitosamente en el servidor")
+        } else {
+          console.error("Error al guardar el carrito:", data.message)
+        }
+      })
+      .catch(err => console.error("Error en fetch:", err))
+  }
+
+  function cargarCarritoDesdeServidor() {
+    if (!isLoggedIn) {
+      initializeCart()
       return
     }
 
-    cartItemsContainer.style.display = "block"
-    emptyCartContainer.classList.remove("show")
-    checkoutBtn.disabled = false
-
-    cartItemsContainer.innerHTML = cart
-      .map(
-        (item) => `
-        <div class="cart-item" data-id="${item.id}">
-            <div class="item-image">
-                <img src="${item.image}" alt="${item.name}">
-            </div>
-            <div class="item-details">
-                <div class="item-name">${item.name}</div>
-                <div class="item-description">${item.description}</div>
-                ${item.customizations ? `<div class="item-customizations">${item.customizations}</div>` : ""}
-            </div>
-            <div class="item-price">$${item.price.toFixed(2)}</div>
-            <div class="item-quantity">
-                <button class="quantity-btn decrease" data-id="${item.id}">-</button>
-                <input type="number" class="quantity-input" value="${item.quantity}" min="1" max="10" data-id="${item.id}">
-                <button class="quantity-btn increase" data-id="${item.id}">+</button>
-            </div>
-            <button class="item-remove" data-id="${item.id}">
-                <i class="fas fa-trash"></i>
-            </button>
-        </div>
-    `,
-      )
-      .join("")
-
-    // Agregar event listeners para los botones de cantidad y eliminar
-    addCartEventListeners()
-  }
-
-  // Agregar event listeners para los elementos del carrito
-  function addCartEventListeners() {
-    // Botones de cantidad
-    document.querySelectorAll(".quantity-btn").forEach((btn) => {
-      btn.addEventListener("click", function () {
-        const itemId = Number.parseInt(this.getAttribute("data-id"))
-        const isIncrease = this.classList.contains("increase")
-
-        updateQuantity(itemId, isIncrease ? 1 : -1)
-      })
-    })
-
-    // Inputs de cantidad
-    document.querySelectorAll(".quantity-input").forEach((input) => {
-      input.addEventListener("change", function () {
-        const itemId = Number.parseInt(this.getAttribute("data-id"))
-        const newQuantity = Number.parseInt(this.value)
-
-        if (newQuantity >= 1 && newQuantity <= 10) {
-          setQuantity(itemId, newQuantity)
+    fetch("obtener_carrito.php")
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          cart = data.carrito
+          renderCart()
+          updateSummary()
         } else {
-          this.value = getItemQuantity(itemId)
+          console.warn("No se pudo obtener el carrito:", data.message)
+          initializeCart()
         }
       })
-    })
-
-    // Botones de eliminar
-    document.querySelectorAll(".item-remove").forEach((btn) => {
-      btn.addEventListener("click", function () {
-        const itemId = Number.parseInt(this.getAttribute("data-id"))
-        removeItem(itemId)
+      .catch(err => {
+        console.error("Error al cargar carrito:", err)
+        initializeCart()
       })
-    })
+  }
+
+  function agregarAlCarrito(producto) {
+    cart.push(producto)
+    renderCart()
+    updateSummary()
+    guardarEnLocalStorage()
+    guardarCarritoEnServidor()
+  }
+  
+  function guardarEnLocalStorage() {
+    localStorage.setItem("carrito", JSON.stringify(cart));
+  }
+
+  // Detectar botones "Agregar al carrito" en cualquier página
+  document.querySelectorAll('.btn-add').forEach(btn => {
+    btn.addEventListener('click', function () {
+      // Buscar el contenedor del producto
+      const item = this.closest('.promo-item, .popular-item');
+      if (!item) return;
+
+      // Obtener datos del producto (ajusta los selectores según tu HTML)
+      const name = item.querySelector('h3')?.textContent || 'Producto';
+      const priceText = item.querySelector('.price')?.textContent || '$0';
+      const price = parseFloat(priceText.replace('$', ''));
+      const image = item.querySelector('img')?.getAttribute('src') || '';
+      const id = name.replace(/\s+/g, '-').toLowerCase(); // Genera un id simple
+
+      // Crear objeto producto
+      const producto = {
+        id,
+        name,
+        price,
+        quantity: 1,
+        image,
+        customizations: ''
+      };
+
+      agregarAlCarrito(producto);
+
+      // Opcional: feedback visual
+      this.textContent = "¡Agregado!";
+      setTimeout(() => { this.textContent = "Agregar al carrito"; }, 1000);
+    });
+  })
+
+  function updateCartCount() {
+    const cartCount = document.querySelector('.cart-count');
+    if (cartCount) cartCount.textContent = cart.length;
   }
 
   // Actualizar cantidad de un producto
@@ -188,22 +176,28 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCart()
     updateSummary()
   }
-
+//cart-count
   // Vaciar carrito
   function clearCart() {
-    if (confirm("¿Estás seguro de que quieres vaciar el carrito?")) {
-      cart = []
-      appliedPromo = null
-      promoCodeInput.value = ""
-      promoMessage.classList.remove("success", "error")
-      promoMessage.style.display = "none"
-      renderCart()
-      updateSummary()
-    }
+  if (confirm("¿Estás seguro de que quieres vaciar el carrito?")) {
+    cart = []
+    appliedPromo = null
+    promoCodeInput.value = ""
+    promoMessage.classList.remove("success", "error")
+    promoMessage.style.display = "none"
+    renderCart()
+    updateSummary()
+    // Reiniciar contador del carrito en el header
+    const cartCount = document.querySelector('cart-count');
+    if (cartCount) cartCount.textContent = "0";
   }
+}
 
   // Actualizar resumen del pedido
   function updateSummary() {
+    // Si no existen los elementos, no hacer nada
+    if (!subtotalElement || !discountsElement || !taxElement || !totalElement) return;
+
     const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
     let discount = 0
 
@@ -396,38 +390,65 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  clearCartBtn.addEventListener("click", clearCart)
-  applyPromoBtn.addEventListener("click", applyPromoCode)
-  checkoutBtn.addEventListener("click", processOrder)
-
-  cashAmountInput.addEventListener("input", updateChange)
-
-  // Cerrar modal
-  closeModal.addEventListener("click", () => {
-    orderModal.classList.remove("show")
-  })
-
-  orderModal.addEventListener("click", (e) => {
-    if (e.target === orderModal) {
-      orderModal.classList.remove("show")
-    }
+  if (clearCartBtn) clearCartBtn.addEventListener("click", clearCart)
+  if (applyPromoBtn) applyPromoBtn.addEventListener("click", applyPromoCode)
+  if (checkoutBtn) checkoutBtn.addEventListener("click", processOrder)
+  if (cashAmountInput) cashAmountInput.addEventListener("input", updateChange)
+  if (closeModal) closeModal.addEventListener("click", () => { orderModal.classList.remove("show") })
+  if (orderModal) orderModal.addEventListener("click", (e) => {
+    if (e.target === orderModal) orderModal.classList.remove("show")
   })
 
   // Formatear número de tarjeta
-  document.getElementById("card-number").addEventListener("input", function () {
-    const value = this.value.replace(/\s/g, "").replace(/[^0-9]/gi, "")
-    const formattedValue = value.match(/.{1,4}/g)?.join(" ") || value
-    this.value = formattedValue
-  })
+  const cardNumberInput = document.getElementById("card-number");
+  if (cardNumberInput) {
+    cardNumberInput.addEventListener("input", function () {
+      const value = this.value.replace(/\s/g, "").replace(/[^0-9]/gi, "")
+      const formattedValue = value.match(/.{1,4}/g)?.join(" ") || value
+      this.value = formattedValue
+    });
+  }
 
   // Formatear fecha de vencimiento
-  document.getElementById("card-expiry").addEventListener("input", function () {
-    let value = this.value.replace(/\D/g, "")
-    if (value.length >= 2) {
-      value = value.substring(0, 2) + "/" + value.substring(2, 4)
+  const cardExpiryInput = document.getElementById("card-expiry");
+  if (cardExpiryInput) {
+    cardExpiryInput.addEventListener("input", function () {
+      let value = this.value.replace(/\D/g, "")
+      if (value.length >= 2) {
+        value = value.substring(0, 2) + "/" + value.substring(2, 4)
+      }
+      this.value = value
+    });
+  }
+
+  // Renderizar carrito
+  function renderCart() {
+    if (!cartItemsContainer) return; // Solo ejecuta si existe el contenedor
+
+    cartItemsContainer.innerHTML = "";
+
+    if (cart.length === 0) {
+      if (emptyCartContainer) emptyCartContainer.classList.add("show");
+      return;
     }
-    this.value = value
-  })
+
+    if (emptyCartContainer) emptyCartContainer.classList.remove("show");
+
+    cart.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "cart-item";
+      div.innerHTML = `
+        <div class="item-image"><img src="${item.image}" alt="${item.name}"></div>
+        <div class="item-details">
+          <div class="item-name">${item.name}</div>
+          <div class="item-customizations">${item.customizations || ""}</div>
+        </div>
+        <div class="item-price">$${item.price.toFixed(2)}</div>
+        <div class="item-quantity">${item.quantity}</div>
+      `;
+      cartItemsContainer.appendChild(div);
+    });
+  }
 
   // Inicializar
   initializeCart()

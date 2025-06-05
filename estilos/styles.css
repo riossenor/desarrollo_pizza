@@ -68,6 +68,14 @@ header {
   cursor: pointer;
   font-weight: bold;
 }
+.btn-logout {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
 /* Agregar después de los estilos del header */
 .cart-icon {

@@ -98,16 +98,32 @@ document.addEventListener("DOMContentLoaded", () => {
       return
     }
 
-    // Aquí iría el código para enviar los datos al servidor
-    console.log("Inicio de sesión con:", { email })
-
-    // Simulación de inicio de sesión exitoso
-    alert("¡Inicio de sesión exitoso!")
-    window.location.href = "index.html" // Redirigir al inicio
+    // Enviar datos por AJAX a login.php
+    fetch("../php/login.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: `login-email=${encodeURIComponent(email)}&login-password=${encodeURIComponent(password)}`
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert("¡Inicio de sesión exitoso!")
+          localStorage.setItem("usuarioLogueado", "true")
+          // Puedes guardar el nombre si lo deseas: localStorage.setItem("nombreUsuario", data.nombre)
+          window.location.href = "../index.html"
+        } else {
+          alert(data.message || "Correo o contraseña incorrectos")
+        }
+      })
+      .catch(() => {
+        alert("Error de conexión con el servidor")
+      })
   })
 
   registerForm.addEventListener("submit", (e) => {
-    
+    e.preventDefault()
 
     const name = document.getElementById("register-name").value.trim()
     const email = document.getElementById("register-email").value.trim()
@@ -144,8 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Simulación de registro exitoso
     alert("¡Registro exitoso! Ahora puedes iniciar sesión")
-    
-
+    localStorage.setItem("usuarioLogueado", "true") // <-- Agregado
 
     // Cambiar a la pestaña de inicio de sesión
     authTabs[0].click()

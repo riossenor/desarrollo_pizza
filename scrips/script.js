@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileMenuBtn.classList.add("mobile-menu-btn")
     mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>'
 
-    header.insertBefore(mobileMenuBtn, nav)
+    if (header.contains(nav)) {
+      header.insertBefore(mobileMenuBtn, nav)
+    } else {
+      header.insertBefore(mobileMenuBtn, header.firstChild) // o header.appendChild(...)
+    }
 
     mobileMenuBtn.addEventListener("click", () => {
       nav.classList.toggle("active")
@@ -62,33 +66,76 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   // Simulate loading promotions
-  const loadPromotions = () => {
-    const promoItems = document.querySelectorAll(".promo-item")
+  function loadPromotions() {
+  const promoItems = document.querySelectorAll(".promo-item")
+  const promotions = [
+    {
+      name: "Combo Celebración",
+      description: "Pizza + Palitos de pan + Pastel + Refresco",
+      price: "$199.00",
+      image: "recursos/promo1.png",
+    },
+    {
+      name: "Combo Familia",
+      description: "1 Pizza Grande + 1 Pizza Mediana Dulce + Refresco 1.5L",
+      price: "$249.00",
+      image: "recursos/promo2.jpeg",
+    },
+    {
+      name: "2x1 en Pizzas Medianas",
+      description: "Para recoger y a domicilio",
+      price: "$159.00",
+      image: "recursos/promo3.png",
+    },
+  ]
 
-    // Sample promotion data (in a real app, this would come from an API)
-    const promotions = [
-      { name: "Combo Familiar", price: "$199", image: "promo1.jpg" },
-      { name: "2x1 Martes", price: "$149", image: "promo2.jpg" },
-      { name: "Pizza + Refresco", price: "$99", image: "promo3.jpg" },
-    ]
-
-    promoItems.forEach((item, index) => {
-      if (promotions[index]) {
-        const promo = promotions[index]
-
-        item.innerHTML = `
-                    <div class="promo-image" style="background-color: #ccc; height: 70%;"></div>
-                    <div class="promo-info" style="padding: 10px;">
-                        <h3>${promo.name}</h3>
-                        <p>${promo.price}</p>
-                    </div>
-                `
-      }
-    })
-  }
+  promoItems.forEach((item, index) => {
+    const promo = promotions[index]
+    if (promo) {
+      item.querySelector("img").src = promo.image
+      item.querySelector("h3").textContent = promo.name
+      item.querySelector("p").textContent = promo.description
+      item.querySelector(".price").textContent = promo.price
+    }
+  })
+}
+  
 
   // Simulate loading popular pizzas
-  
+  function loadPopularPizzas() {
+  const popularItems = document.querySelectorAll(".popular-item")
+  const pizzas = [
+    {
+      name: "Pizza Mexicana",
+      description: "Chorizo, pimientos, aceitunas negras y queso",
+      price: "$149.00",
+      image: "recursos/pizza-mexicana.jpeg",
+    },
+    {
+      name: "Pizza Hawaiana",
+      description: "Jamón, piña y queso mozzarella",
+      price: "$139.00",
+      image: "recursos/pizza-hawaiana.jpeg",
+    },
+    {
+      name: "Pizza Pepperoni",
+      description: "Pepperoni y queso mozzarella",
+      price: "$129.00",
+      image: "recursos/pizza-pepperoni.jpeg",
+    },
+  ]
+
+  popularItems.forEach((item, index) => {
+    const pizza = pizzas[index]
+    if (pizza) {
+      item.querySelector("img").src = pizza.image
+      item.querySelector("h3").textContent = pizza.name
+      item.querySelector("p").textContent = pizza.description
+      item.querySelector(".price").textContent = pizza.price
+    }
+  })
+}
+
 
   // Load content
   loadPromotions()

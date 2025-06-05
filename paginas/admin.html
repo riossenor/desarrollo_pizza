@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Pizza Delivery</title>
+    <link rel="stylesheet" href="../estilos/styles.css">
+    <link rel="stylesheet" href="../estilos/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <img src="../recursos/logo.png" alt="Logo de Pizza">
+                <h2>Admin Panel</h2>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="#dashboard" class="nav-link active" data-section="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a></li>
+                    <li><a href="#menu-management" class="nav-link" data-section="menu-management">
+                        <i class="fas fa-utensils"></i>
+                        Gestión de Menú
+                    </a></li>
+                    <li><a href="#promotions" class="nav-link" data-section="promotions">
+                        <i class="fas fa-tags"></i>
+                        Promociones
+                    </a></li>
+                    <li><a href="#orders" class="nav-link" data-section="orders">
+                        <i class="fas fa-shopping-cart"></i>
+                        Pedidos
+                    </a></li>
+                    <li><a href="#statistics" class="nav-link" data-section="statistics">
+                        <i class="fas fa-chart-bar"></i>
+                        Estadísticas
+                    </a></li>
+                    <li><a href="#flash-sales" class="nav-link" data-section="flash-sales">
+                        <i class="fas fa-bolt"></i>
+                        Ventas Flash
+                    </a></li>
+                    <li><a href="#settings" class="nav-link" data-section="settings">
+                        <i class="fas fa-cog"></i>
+                        Configuración
+                    </a></li>
+                </ul>
+            </nav>
+            <div class="admin-logout">
+                <a href="../index.html">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Volver al sitio
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="admin-header-content">
+                    <h1 id="section-title">Dashboard</h1>
+                    <div class="admin-user">
+                        <span>Bienvenido, Administrador</span>
+                        <div class="user-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="admin-section active">
+                <div class="dashboard-cards">
+                    <div class="dashboard-card">
+                        <div class="card-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Pedidos Hoy</h3>
+                            <p class="card-number" id="orders-today">47</p>
+                            <span class="card-change positive">+12% vs ayer</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Ventas Hoy</h3>
+                            <p class="card-number" id="sales-today">$8,450</p>
+                            <span class="card-change positive">+8% vs ayer</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Tiempo Promedio</h3>
+                            <p class="card-number" id="avg-time">28 min</p>
+                            <span class="card-change negative">+3 min vs ayer</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Calificación</h3>
+                            <p class="card-number" id="rating">4.8</p>
+                            <span class="card-change positive">+0.2 vs ayer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-charts">
+                    <div class="chart-container">
+                        <h3>Ventas de la Semana</h3>
+                        <canvas id="weekly-sales-chart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Productos Más Vendidos</h3>
+                        <canvas id="top-products-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="recent-orders">
+                    <h3>Pedidos Recientes</h3>
+                    <div class="orders-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cliente</th>
+                                    <th>Productos</th>
+                                    <th>Total</th>
+                                    <th>Estado</th>
+                                    <th>Hora</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-orders-tbody">
+                                <!-- Los pedidos se cargarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Menu Management Section -->
+            <section id="menu-management" class="admin-section">
+                <div class="section-header">
+                    <h2>Gestión de Menú</h2>
+                    <button class="btn-primary" id="add-product-btn">
+                        <i class="fas fa-plus"></i>
+                        Agregar Producto
+                    </button>
+                </div>
+
+                <div class="menu-filters">
+                    <select id="category-filter">
+                        <option value="">Todas las categorías</option>
+                        <option value="pizzas">Pizzas</option>
+                        <option value="bebidas">Bebidas</option>
+                        <option value="papas">Papas</option>
+                        <option value="volovanes">Volovanes</option>
+                        <option value="hojaldras">Hojaldras</option>
+                        <option value="postres">Postres</option>
+                    </select>
+                    <input type="text" id="search-products" placeholder="Buscar productos...">
+                </div>
+
+                <div class="products-grid" id="products-grid">
+                    <!-- Los productos se cargarán dinámicamente -->
+                </div>
+            </section>
+
+            <!-- Promotions Section -->
+            <section id="promotions" class="admin-section">
+                <div class="section-header">
+                    <h2>Gestión de Promociones</h2>
+                    <button class="btn-primary" id="add-promotion-btn">
+                        <i class="fas fa-plus"></i>
+                        Crear Promoción
+                    </button>
+                </div>
+
+                <div class="promotions-list" id="promotions-list">
+                    <!-- Las promociones se cargarán dinámicamente -->
+                </div>
+            </section>
+
+            <!-- Orders Section -->
+            <section id="orders" class="admin-section">
+                <div class="section-header">
+                    <h2>Gestión de Pedidos</h2>
+                    <div class="orders-filters">
+                        <select id="order-status-filter">
+                            <option value="">Todos los estados</option>
+                            <option value="pending">Pendiente</option>
+                            <option value="preparing">Preparando</option>
+                            <option value="ready">Listo</option>
+                            <option value="delivered">Entregado</option>
+                            <option value="cancelled">Cancelado</option>
+                        </select>
+                        <input type="date" id="order-date-filter">
+                    </div>
+                </div>
+
+                <div class="orders-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cliente</th>
+                                <th>Productos</th>
+                                <th>Total</th>
+                                <th>Tipo</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-tbody">
+                            <!-- Los pedidos se cargarán dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Statistics Section -->
+            <section id="statistics" class="admin-section">
+                <div class="section-header">
+                    <h2>Estadísticas de Ventas</h2>
+                    <div class="stats-period">
+                        <button class="period-btn active" data-period="week">Semana</button>
+                        <button class="period-btn" data-period="month">Mes</button>
+                        <button class="period-btn" data-period="quarter">Trimestre</button>
+                        <button class="period-btn" data-period="year">Año</button>
+                    </div>
+                </div>
+
+                <div class="stats-summary">
+                    <div class="stat-card">
+                        <h3>Ventas Totales</h3>
+                        <p class="stat-number" id="total-sales">$45,230</p>
+                        <span class="stat-change positive">+15% vs período anterior</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pedidos Totales</h3>
+                        <p class="stat-number" id="total-orders">1,247</p>
+                        <span class="stat-change positive">+8% vs período anterior</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Ticket Promedio</h3>
+                        <p class="stat-number" id="avg-ticket">$36.30</p>
+                        <span class="stat-change positive">+3% vs período anterior</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Productos Vendidos</h3>
+                        <p class="stat-number" id="products-sold">2,891</p>
+                        <span class="stat-change positive">+12% vs período anterior</span>
+                    </div>
+                </div>
+
+                <div class="stats-charts">
+                    <div class="chart-container large">
+                        <h3>Tendencia de Ventas</h3>
+                        <canvas id="sales-trend-chart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Productos Más Vendidos</h3>
+                        <div class="top-products-list" id="top-products-list">
+                            <!-- Lista de productos más vendidos -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Flash Sales Section -->
+            <section id="flash-sales" class="admin-section">
+                <div class="section-header">
+                    <h2>Ventas Flash</h2>
+                    <button class="btn-primary" id="create-flash-sale-btn">
+                        <i class="fas fa-bolt"></i>
+                        Crear Venta Flash
+                    </button>
+                </div>
+
+                <div class="flash-sales-active">
+                    <h3>Ventas Flash Activas</h3>
+                    <div class="flash-sales-grid" id="active-flash-sales">
+                        <!-- Ventas flash activas -->
+                    </div>
+                </div>
+
+                <div class="cancelled-products">
+                    <h3>Productos de Pedidos Cancelados</h3>
+                    <div class="cancelled-products-list" id="cancelled-products-list">
+                        <!-- Productos de pedidos cancelados -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="admin-section">
+                <div class="section-header">
+                    <h2>Configuración</h2>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3>Información de la Tienda</h3>
+                        <form id="store-info-form">
+                            <div class="form-group">
+                                <label for="store-name">Nombre de la tienda</label>
+                                <input type="text" id="store-name" value="Pizza Delivery">
+                            </div>
+                            <div class="form-group">
+                                <label for="store-address">Dirección</label>
+                                <input type="text" id="store-address" value="Av. Principal #123, Colonia Centro">
+                            </div>
+                            <div class="form-group">
+                                <label for="store-phone">Teléfono</label>
+                                <input type="tel" id="store-phone" value="+123 456 789 0123">
+                            </div>
+                            <div class="form-group">
+                                <label for="store-hours">Horarios</label>
+                                <input type="text" id="store-hours" value="Lunes a Domingo: 11:00 AM - 11:00 PM">
+                            </div>
+                            <button type="submit" class="btn-primary">Guardar Cambios</button>
+                        </form>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Configuración de Entrega</h3>
+                        <form id="delivery-settings-form">
+                            <div class="form-group">
+                                <label for="delivery-fee">Costo de envío</label>
+                                <input type="number" id="delivery-fee" value="50" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label for="free-delivery-min">Pedido mínimo para envío gratis</label>
+                                <input type="number" id="free-delivery-min" value="300" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label for="delivery-time">Tiempo de entrega (minutos)</label>
+                                <input type="number" id="delivery-time" value="45">
+                            </div>
+                            <div class="form-group">
+                                <label for="pickup-time">Tiempo de preparación (minutos)</label>
+                                <input type="number" id="pickup-time" value="25">
+                            </div>
+                            <button type="submit" class="btn-primary">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- Product Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="product-modal-title">Agregar Producto</h2>
+                <span class="close" id="close-product-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="product-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-name">Nombre del producto *</label>
+                            <input type="text" id="product-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-category">Categoría *</label>
+                            <select id="product-category" required>
+                                <option value="">Seleccionar categoría</option>
+                                <option value="pizzas">Pizzas</option>
+                                <option value="bebidas">Bebidas</option>
+                                <option value="papas">Papas</option>
+                                <option value="volovanes">Volovanes</option>
+                                <option value="hojaldras">Hojaldras</option>
+                                <option value="postres">Postres</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-description">Descripción</label>
+                        <textarea id="product-description" rows="3"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-price-small">Precio Chico</label>
+                            <input type="number" id="product-price-small" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="product-price-medium">Precio Mediano</label>
+                            <input type="number" id="product-price-medium" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="product-price-large">Precio Grande</label>
+                            <input type="number" id="product-price-large" step="0.01">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-image">URL de la imagen</label>
+                        <input type="url" id="product-image">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="product-available">
+                            Producto disponible
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancel-product">Cancelar</button>
+                        <button type="submit" class="btn-primary">Guardar Producto</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promotion Modal -->
+    <div id="promotion-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="promotion-modal-title">Crear Promoción</h2>
+                <span class="close" id="close-promotion-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="promotion-form">
+                    <div class="form-group">
+                        <label for="promotion-name">Nombre de la promoción *</label>
+                        <input type="text" id="promotion-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="promotion-description">Descripción</label>
+                        <textarea id="promotion-description" rows="3"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="promotion-type">Tipo de descuento *</label>
+                            <select id="promotion-type" required>
+                                <option value="">Seleccionar tipo</option>
+                                <option value="percentage">Porcentaje</option>
+                                <option value="fixed">Cantidad fija</option>
+                                <option value="2x1">2x1</option>
+                                <option value="free_delivery">Envío gratis</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="promotion-value">Valor del descuento</label>
+                            <input type="number" id="promotion-value" step="0.01">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="promotion-start">Fecha de inicio *</label>
+                            <input type="datetime-local" id="promotion-start" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="promotion-end">Fecha de fin *</label>
+                            <input type="datetime-local" id="promotion-end" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="promotion-code">Código promocional</label>
+                        <input type="text" id="promotion-code" placeholder="Ej: DESCUENTO20">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="promotion-active">
+                            Promoción activa
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancel-promotion">Cancelar</button>
+                        <button type="submit" class="btn-primary">Guardar Promoción</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flash Sale Modal -->
+    <div id="flash-sale-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Crear Venta Flash</h2>
+                <span class="close" id="close-flash-sale-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="flash-sale-form">
+                    <div class="form-group">
+                        <label for="flash-sale-product">Producto *</label>
+                        <select id="flash-sale-product" required>
+                            <option value="">Seleccionar producto</option>
+                            <!-- Se llenarán dinámicamente -->
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="flash-sale-discount">Descuento (%) *</label>
+                            <input type="number" id="flash-sale-discount" min="1" max="90" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="flash-sale-duration">Duración (horas) *</label>
+                            <input type="number" id="flash-sale-duration" min="1" max="24" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="flash-sale-reason">Razón</label>
+                        <select id="flash-sale-reason">
+                            <option value="cancelled_order">Pedido cancelado</option>
+                            <option value="excess_inventory">Exceso de inventario</option>
+                            <option value="promotion">Promoción especial</option>
+                            <option value="other">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancel-flash-sale">Cancelar</button>
+                        <button type="submit" class="btn-primary">Crear Venta Flash</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scrips/script.js"></script>
+    <script src="../scrips/admin.js"></script>
+</body>
+</html>
